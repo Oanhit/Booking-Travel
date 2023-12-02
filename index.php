@@ -679,7 +679,7 @@ session_start();
                     <h2 style="color:#f5ad3b">Khung Cảnh Việt Nam</h2>
                     <p>
                         Việt Nam là một đất nước đa dạng về cảnh quan tự nhiên và văn hóa, từ những ngọn núi hùng vĩ, những bãi biển tuyệt đẹp cho đến những thị trấn cổ kính đậm chất lịch sử. Đất nước này chứa đựng một sự pha trộn tuyệt vời giữa nét đẹp tự nhiên hoang sơ và vẻ đẹp kiến trúc, văn hóa phong phú.</p>
-                        <br>
+                    <br>
 
                     <!-- <a href=.images/video1 class="popup-youtube" id="play-button"><span><i class="fa fa-play"></i></span></a> -->
 
@@ -708,7 +708,7 @@ session_start();
                             <div class="item active">
                                 <blockquote>"Trang web đặt tour này cung cấp cho tôi một trải nghiệm tuyệt vời khi tôi muốn lên kế hoạch cho chuyến du lịch của mình. Giao diện trực quan và dễ sử dụng giúp tôi dễ dàng tìm kiếm và chọn lựa những tour phù hợp với mong muốn của mình. Tôi thích cách thông tin về các tour được hiển thị rõ ràng và chi tiết, bao gồm cả lịch trình, hoạt động đi kèm và chi phí."
 
-</blockquote>
+                                </blockquote>
                                 <div class="rating">
                                     <span><i class="fa fa-star orange"></i></span>
                                     <span><i class="fa fa-star orange"></i></span>
@@ -806,7 +806,7 @@ session_start();
                             <div class="main-block latest-block">
                                 <div class="main-img latest-img">
                                     <a href="#">
-                                        <img src="https://cdnimgen.vietnamplus.vn/uploaded/wbxx/2023_08_21/hoian.jpg" class="img-responsive" alt="blog-img" style="max-height:240px"/>
+                                        <img src="https://cdnimgen.vietnamplus.vn/uploaded/wbxx/2023_08_21/hoian.jpg" class="img-responsive" alt="blog-img" style="max-height:240px" />
                                     </a>
                                 </div><!-- end latest-img -->
 
@@ -867,99 +867,11 @@ session_start();
     </section><!-- end latest-blog -->
 
 
-    <!--========================= NEWSLETTER-1 ==========================-->
-    <section id="newsletter-1" class="section-padding back-size newsletter" style="background-image: url(https://www.chudu24.com/wp-content/uploads/2017/01/du-lich-da-nang.jpg);">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                    <h2>Đăng ký theo dõi</h2>
-                    <p>Đăng ký để nhận được những tin tức thú vị từ chúng tôi</p>
-                    <form>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="email" class="form-control input-lg" placeholder="Nhập email của bạn" required />
-                                <span class="input-group-btn"><button class="btn btn-lg"><i class="fa fa-envelope"></i></button></span>
-                            </div>
-                        </div>
-                    </form>
-                </div><!-- end columns -->
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </section><!-- end newsletter-1 -->
 
 
-    <!--======================= FOOTER =======================-->
-    <section id="footer" class="ftr-heading-o ftr-heading-mgn-1">
-
-        <div id="footer-top" class="banner-padding ftr-top-grey ftr-text-white">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 footer-widget ftr-contact">
-                        <h3 class="footer-heading">Liên hệ</h3>
-                        <ul class="list-unstyled">
-                            <li><span><i class="fa fa-map-marker"></i></span>Phường Hòa Quý - Quận Ngũ Hành Sơn - TP.Đà Nẵng</li>
-                            <li><span><i class="fa fa-phone"></i></span>+84702 579 654</li>
-                            <li><span><i class="fa fa-envelope"></i></span>tronggg2611@gmail.com</li>
-                        </ul>
-                    </div><!-- end columns -->
-
-                    <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2 footer-widget ftr-links">
-                        <h3 class="footer-heading">Website</h3>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Trang chủ</a></li>
-                            <li><a href="#">Khách sạn</a></li>
-                            <li><a href="#">Tours</a></li>
-                        </ul>
-                    </div><!-- end columns -->
-
-                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 footer-widget ftr-links ftr-pad-left">
-                        <h3 class="footer-heading">Hỗ trợ</h3>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Blogs</a></li>
-                            <li><a href="#">Liên hệ</a></li>
-                            <li><a href="#">Đăng ký</a></li>
-                            <li><a href="#">Tạo tài khoản</a></li>
-                            <li><a href="#">Maps</a></li>
-                        </ul>
-                    </div><!-- end columns -->
-
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 footer-widget ftr-about">
-                        <h3 class="footer-heading">Về chúng tôi</span></h3>
-                        <p>Chào mừng đến với trang web du lịch của chúng tôi! Khám phá những điểm đến tuyệt vời, tận hưởng các hành trình phiêu lưu và tìm hiểu về văn hóa độc đáo trên khắp thế giới. Hãy để chúng tôi dẫn dắt bạn đến những trải nghiệm du lịch không quên.</p>
-                        <ul class="social-links list-inline list-unstyled">
-                            <li><a href="#"><span><i class="fa fa-facebook"></i></span></a></li>
-                            <li><a href="#"><span><i class="fa fa-twitter"></i></span></a></li>
-                            <li><a href="#"><span><i class="fa fa-google-plus"></i></span></a></li>
-                            <li><a href="#"><span><i class="fa fa-pinterest-p"></i></span></a></li>
-                            <li><a href="#"><span><i class="fa fa-instagram"></i></span></a></li>
-                            <li><a href="#"><span><i class="fa fa-linkedin"></i></span></a></li>
-                            <li><a href="#"><span><i class="fa fa-youtube-play"></i></span></a></li>
-                        </ul>
-                    </div><!-- end columns -->
-
-                </div><!-- end row -->
-            </div><!-- end container -->
-        </div><!-- end footer-top -->
-
-        <div id="footer-bottom" class="ftr-bot-black">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="copyright">
-                        <p>© 2023 <a href="#">OTB TRAVELS</a>. All rights reserved.</p>
-                    </div><!-- end columns -->
-
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="terms">
-                        <ul class="list-unstyled list-inline">
-                            <li><a href="#">Terms & Condition</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                        </ul>
-                    </div><!-- end columns -->
-                </div><!-- end row -->
-            </div><!-- end container -->
-        </div><!-- end footer-bottom -->
-
-    </section><!-- end footer -->
+    <?php
+    include 'footer.php';
+    ?>
 
 
     <!-- Page Scripts Starts -->

@@ -1113,7 +1113,7 @@ h1,h2,h3,h4,h5,h6,.main-title a, .flight-info h3 .flight-destination,.blog-post-
 .offer-price-1{
 	font-size:14px;
 	margin:0px;
-	text-transform:uppercase;
+	/* text-transform:uppercase; */
 	font-weight:bold;
 	padding:14px 18px 11px;
 }
@@ -2940,7 +2940,7 @@ h1,h2,h3,h4,h5,h6,.main-title a, .flight-info h3 .flight-destination,.blog-post-
 }
 
 .list-block .main-mask{
-	bottom:20px;
+	bottom:10px;
 }
 
 .list-block .list-img{

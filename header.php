@@ -66,7 +66,7 @@
                     
                         <li class="dropdown <?php if($active_tab =='tour') echo 'active' ?>"><a href="tour-list.php" style="font-size: 14px;"><i class="fa-solid fa-globe"></i> Tours</a></li>
                         
-                        <li class="dropdown <?php if($active_tab =='hotel') echo 'active' ?>"><a href="hotel-grid-left-sidebar.html" style="font-size: 14px;"><i class="fa-solid fa-hotel"></i> Khách sạn</a></li>
+                        <li class="dropdown <?php if($active_tab =='hotel') echo 'active' ?>"><a href="hotel-list.php" style="font-size: 14px;"><i class="fa-solid fa-hotel"></i> Khách sạn</a></li>
 
                         <li class="dropdown <?php if($active_tab =='blog') echo 'active' ?>"><a href="blog-listing-left-sidebar.html" style="font-size: 14px;"><i class="fa-brands fa-blogger-b"></i> Blogs</a></li>
 

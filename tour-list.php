@@ -1,7 +1,11 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Index</title>
+        <title>TOURS</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="icon" href="images/favicon.png" type="image/x-icon">
@@ -14,6 +18,7 @@
         
         <!-- Font Awesome Stylesheet -->
         <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
             
         <!-- Custom Stylesheets -->	
         <link rel="stylesheet" href="css/style.css">
@@ -42,106 +47,10 @@
     
     
     	<!--======== SEARCH-OVERLAY =========-->       
-        <div class="overlay">
-            <a href="javascript:void(0)" id="close-button" class="closebtn">&times;</a>
-            <div class="overlay-content">
-                <div class="form-center">
-                    <form>
-                    	<div class="form-group">
-                        	<div class="input-group">
-                        		<input type="text" class="form-control" placeholder="Search..." required />
-                            	<span class="input-group-btn"><button type="submit" class="btn"><span><i class="fa fa-search"></i></span></button></span>
-                            </div><!-- end input-group -->
-                        </div><!-- end form-group -->
-                    </form>
-                </div><!-- end form-center -->
-            </div><!-- end overlay-content -->
-        </div><!-- end overlay -->
-        
-        
-                <!--============= TOP-BAR ===========-->
-                <div id="top-bar" class="tb-text-white">
-                    <div class="container">
-                        <div class="row">          
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <div id="info">
-                                    <ul class="list-unstyled list-inline">
-                                        <li><span><i class="fa fa-map-marker"></i></span>Phường Hòa Quý - Quận Ngũ Hành Sơn - TP.Đà Nẵng</li>
-                                        <li><span><i class="fa fa-phone"></i></span>+84 702 579 654</li>
-                                    </ul>
-                                </div><!-- end info -->
-                            </div><!-- end columns -->
-                            
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <div id="links">
-                                    <ul class="list-unstyled list-inline">
-                                        <li><a href="login.html"><span><i class="fa fa-lock"></i></span>Đăng Nhập</a></li>
-                                        <li><a href="registration.html"><span><i class="fa fa-plus"></i></span>Đăng Ký</a></li>
-                                        <li style="display: none;"><a href="#"><span><i class="fa fa-plus"></i></span>Đăng Xuất</a></li>
-                                    </ul>
-                                </div><!-- end links -->
-                            </div><!-- end columns -->				
-                        </div><!-- end row -->
-                    </div><!-- end container -->
-                </div><!-- end top-bar -->
-                
-                <nav class="navbar navbar-default main-navbar navbar-custom navbar-white" id="mynavbar-1">
-                    <div class="container">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" id="menu-button">
-                              <span class="icon-bar"></span>
-                              <span class="icon-bar"></span>
-                              <span class="icon-bar"></span>                        
-                            </button>
-                            <div class="header-search hidden-lg">
-                                <a href="javascript:void(0)" class="search-button"><span><i class="fa fa-search"></i></span></a>
-                            </div>
-                            <a href="index.html" class="navbar-brand"><span><i class="fa fa-plane"></i>OTB</span>TRAVELS</a>
-                        </div><!-- end navbar-header -->
-                        
-                        <div class="collapse navbar-collapse" id="myNavbar1">
-                            <ul class="nav navbar-nav navbar-right navbar-search-link">
-                                <li class="dropdown"><a href="index.html">Trang chủ</a></li>
-                            
-                                <li class="dropdown active"><a href="tour-grid-left-sidebar.html">Tours</a></li>
-                                
-                                <li class="dropdown"><a href="hotel-grid-left-sidebar.html">Khách sạn</a></li>
-        
-                                <li class="dropdown"><a href="blog-listing-left-sidebar.html">Blogs</a></li>
-        
-                                <li class="dropdown"><a href="about-us.html">Giới thiệu</a></li>
-        
-                                <li class="dropdown"><a href="contact-us.html">Liên hệ</a></li>
-        
-                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">User<span><i class="fa fa-angle-down"></i></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="login.html">Đăng nhập</a></li>
-                                        <li><a href="registration.html">Đăng ký</a></li>
-                                        <li><a href="#">Đổi mật khẩu</a></li>
-                                        <li><a href="#">Tour đã đặt</a></li>
-                                        <li><a href="#">Information</a></li>
-                                        <li><a href="#">Đăng xuất</a></li>
-                                    </ul>			
-                                </li>
-                                            
-                                </li>
-                                <li><a href="javascript:void(0)" class="search-button"><span><i class="fa fa-search"></i></span></a></li>
-                            </ul>
-                        </div><!-- end navbar collapse -->
-                    </div><!-- end container -->
-                </nav><!-- end navbar -->        
-                
-                <div class="sidenav-content">
-                    <div id="mySidenav" class="sidenav" >
-                        <h2 id="web-name"><span><i class="fa fa-plane"></i></span>OTBTRAVELS</h2>
-        
-                        <div id="main-menu">
-                            <div class="closebtn">
-                                <button class="btn btn-default" id="closebtn">&times;</button>
-                            </div><!-- end close-btn -->
-                        </div><!-- end main-menu -->
-                    </div><!-- end mySidenav -->
-                </div><!-- end sidenav-content -->
+       <?php
+     $active_tab = "tour";
+     include 'header.php';
+       ?>
         
         
         <!--================== PAGE-COVER =================-->

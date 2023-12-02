@@ -64,7 +64,7 @@
                     <ul class="nav navbar-nav navbar-right navbar-search-link">
                         <li class="dropdown <?php if($active_tab =='home') echo 'active' ?>"><a href="index.php" style="font-size: 14px;"><i class="fa-solid fa-house"></i> Trang chủ</a></li>
                     
-                        <li class="dropdown <?php if($active_tab =='tour') echo 'active' ?>"><a href="tour-grid-left-sidebar.html" style="font-size: 14px;"><i class="fa-solid fa-globe"></i> Tours</a></li>
+                        <li class="dropdown <?php if($active_tab =='tour') echo 'active' ?>"><a href="tour-list.php" style="font-size: 14px;"><i class="fa-solid fa-globe"></i> Tours</a></li>
                         
                         <li class="dropdown <?php if($active_tab =='hotel') echo 'active' ?>"><a href="hotel-grid-left-sidebar.html" style="font-size: 14px;"><i class="fa-solid fa-hotel"></i> Khách sạn</a></li>
 

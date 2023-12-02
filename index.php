@@ -779,21 +779,21 @@ session_start();
                             <div class="main-block latest-block">
                                 <div class="main-img latest-img">
                                     <a href="#">
-                                        <img src="images/latest-blog-1.jpg" class="img-responsive" alt="blog-img" />
+                                        <img src="https://suckhoedoisong.qltns.mediacdn.vn/Images/thanhloan/2020/11/28/Nam-2030-du-lich-ha-noi-phan-dau-tro-thanh-nganh-kinh-te-mui-nhon-cua-thu-do-19.jpg" class="img-responsive" alt="blog-img" style="max-height:240px" />
                                     </a>
                                 </div><!-- end latest-img -->
 
                                 <div class="latest-info">
                                     <ul class="list-unstyled">
-                                        <li><span><i class="fa fa-calendar-minus-o"></i></span>29 April,2017<span class="author">by: <a href="#">Jhon Smith</a></span></li>
+                                        <li><span><i class="fa fa-calendar-minus-o"></i></span> 28/1/2023<span class="author">by: <a href="#">Admin</a></span></li>
                                     </ul>
                                 </div><!-- end latest-info -->
 
                                 <div class="main-info latest-desc">
                                     <div class="row">
                                         <div class="col-xs-10 col-sm-10 main-title">
-                                            <a href="#">Travel Insuranve Benefits</a>
-                                            <p>Veniam delectus ei vis. Est atqui timeam mnesarchum at, pro an eros perpetua ullamcorper.</p>
+                                            <a href="#" style="color:#f5ad3b">'Hà Nội - Thủ Đô Nghìn Tuổi Trên Đất Việt'</a>
+                                            <p>Khám phá văn hóa, ẩm thực và những điểm tham quan nổi tiếng ở Hà Nội</p>
                                         </div><!-- end columns -->
                                     </div><!-- end row -->
 
@@ -806,21 +806,21 @@ session_start();
                             <div class="main-block latest-block">
                                 <div class="main-img latest-img">
                                     <a href="#">
-                                        <img src="images/latest-blog-2.jpg" class="img-responsive" alt="blog-img" />
+                                        <img src="https://cdnimgen.vietnamplus.vn/uploaded/wbxx/2023_08_21/hoian.jpg" class="img-responsive" alt="blog-img" style="max-height:240px"/>
                                     </a>
                                 </div><!-- end latest-img -->
 
                                 <div class="latest-info">
                                     <ul class="list-unstyled">
-                                        <li><span><i class="fa fa-calendar-minus-o"></i></span>29 April,2017<span class="author">by: <a href="#">Jhon Smith</a></span></li>
+                                        <li><span><i class="fa fa-calendar-minus-o"></i></span>3/1/2023<span class="author">by: <a href="#">Admin</a></span></li>
                                     </ul>
                                 </div><!-- end latest-info -->
 
                                 <div class="main-info latest-desc">
                                     <div class="row">
                                         <div class="col-xs-10 col-sm-10 main-title">
-                                            <a href="#">Travel Guideline Agents</a>
-                                            <p>Veniam delectus ei vis. Est atqui timeam mnesarchum at, pro an eros perpetua ullamcorper.</p>
+                                            <a href="#" style="color:#f5ad3b">'Hội An - Di Sản Văn Hóa Thế Giới Trên Bờ Sông Hoài'</a>
+                                            <p>Hướng dẫn du lịch, những hoạt động và trải nghiệm độc đáo tại Hội An</p>
                                         </div><!-- end columns -->
                                     </div><!-- end row -->
 
@@ -833,21 +833,21 @@ session_start();
                             <div class="main-block latest-block">
                                 <div class="main-img latest-img">
                                     <a href="#">
-                                        <img src="images/latest-blog-3.jpg" class="img-responsive" alt="blog-img" />
+                                        <img src="https://www.vietnambooking.com/wp-content/uploads/2018/08/dulich-SG-kinh-nghiem-an-choi-tha-ga-chon-phon-hoa-do-thi-24-8-2018-45.jpg" class="img-responsive" alt="blog-img" style="max-height:240px" />
                                     </a>
                                 </div><!-- end latest-img -->
 
                                 <div class="latest-info">
                                     <ul class="list-unstyled">
-                                        <li><span><i class="fa fa-calendar-minus-o"></i></span>29 April,2017<span class="author">by: <a href="#">Jhon Smith</a></span></li>
+                                        <li><span><i class="fa fa-calendar-minus-o"></i></span>15/2/2023<span class="author">by: <a href="#">Admin</a></span></li>
                                     </ul>
                                 </div><!-- end latest-info -->
 
                                 <div class="main-info latest-desc">
                                     <div class="row">
                                         <div class="col-xs-10 col-sm-10 main-title">
-                                            <a href="#">Secure Travel Tips</a>
-                                            <p>Veniam delectus ei vis. Est atqui timeam mnesarchum at, pro an eros perpetua ullamcorper.</p>
+                                            <a href="#" style="color:#f5ad3b">'Sài Gòn - Hòa Quyện Hiện Đại và Truyền Thống'</a>
+                                            <p>Khám phá về cuộc sống, ẩm thực và những địa điểm vui chơi ở TP.HCM</p>
                                         </div><!-- end columns -->
                                     </div><!-- end row -->
 

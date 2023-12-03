@@ -68,11 +68,11 @@
                         
                         <li class="dropdown <?php if($active_tab =='hotel') echo 'active' ?>"><a href="hotel-list.php" style="font-size: 14px;"><i class="fa-solid fa-hotel"></i> Khách sạn</a></li>
 
-                        <li class="dropdown <?php if($active_tab =='blog') echo 'active' ?>"><a href="blog-listing-left-sidebar.html" style="font-size: 14px;"><i class="fa-brands fa-blogger-b"></i> Blogs</a></li>
+                        <li class="dropdown <?php if($active_tab =='blog') echo 'active' ?>"><a href="blog-list.php" style="font-size: 14px;"><i class="fa-brands fa-blogger-b"></i> Blogs</a></li>
 
-                        <li class="dropdown <?php if($active_tab =='our') echo 'active' ?>"><a href="about-us.html" style="font-size: 14px;"><i class="fa-solid fa-paper-plane"></i> Giới thiệu</a></li>
+                        <li class="dropdown <?php if($active_tab =='our') echo 'active' ?>"><a href="about-us.php" style="font-size: 14px;"><i class="fa-solid fa-paper-plane"></i> Giới thiệu</a></li>
 
-                        <li class="dropdown <?php if($active_tab =='contact') echo 'active' ?>"><a href="contact-us.html" style="font-size: 14px;"><i class="fa-solid fa-phone"></i> Liên hệ</a></li>
+                        <li class="dropdown <?php if($active_tab =='contact') echo 'active' ?>"><a href="contact-us.php" style="font-size: 14px;"><i class="fa-solid fa-phone"></i> Liên hệ</a></li>
 
  <?php
 // session_start(); // Bắt đầu session để sử dụng thông tin đã lưu trữ khi đăng nhập
@@ -94,7 +94,7 @@ if(isset($_SESSION['user'])) {
 ?>
 
 
-                        <li class="dropdown <?php if($active_tab =='user') echo 'active' ?>" style="color:brown;"><a href="#" class="dropdown-toggle" data-toggle="dropdown">User<span><i class="fa fa-angle-down"></i></span></a>
+                        <li class="dropdown <?php if($active_tab =='login') echo 'active' ?>" style="color:brown;"><a href="#" class="dropdown-toggle" data-toggle="dropdown">User<span><i class="fa fa-angle-down"></i></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="login.php">Đăng nhập</a></li>
                                 <li><a href="registration.html">Đăng ký</a></li>

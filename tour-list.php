@@ -191,7 +191,7 @@ session_start();
                         <div class="list-block main-block t-list-block">
                             <div class="list-content">
                                 <div class="main-img list-img t-list-img">
-                                    <a href="tour-detail-left-sidebar.html">
+                                    <a href="tour-detail.php">
                                         <img src="https://cdn.tuoitre.vn/zoom/700_525/471584752817336320/2023/5/11/photo-1683781481480-1683781481544575599709-0-76-1000-1986-crop-1683781630912431451134.jpg" class="img-responsive" alt="tour-img" />
                                     </a>
                                     <div class="main-mask">
@@ -209,15 +209,15 @@ session_start();
                                 </div><!-- end t-list-img -->
 
                                 <div class="list-info t-list-info">
-                                    <h3 class="block-title"><a href="tour-detail-right-sidebar.html" style="color:#331e0c; font-weight:600">Phú Quốc - Hà Tiên </a></h3>
+                                    <h3 class="block-title"><a href="tour-detail.php" style="color:#331e0c; font-weight:600">Phú Quốc - Hà Tiên </a></h3>
                                     <br>
                                     <p class="block-minor" style="color:#a77b2b"><i class="fa-solid fa-calendar-days"></i> 29/12/2023</p>
                                     <p class="block-minor" style="color:orange"><i class="fa-solid fa-hotel"></i> 3 sao</p>
                                     <p class="block-minor" style="color:#649156"><i class="fa-solid fa-bus-simple"></i> Xe ghế ngồi</p>
-                                    
+
                                     <p style="color:#918d7b">
                                         Khám phá hòn đảo ngọc Phú Quốc với chúng tôi - nơi kết nối với biển cả tuyệt đẹp, bãi biển trắng mịn và trải nghiệm văn hóa độc đáo. Đồng hành cùng chúng tôi để tận hưởng sự hòa quyện giữa thiên nhiên hoang sơ và dịch vụ du lịch chuyên nghiệp. </p>
-                                    <a href="tour-detail-right-sidebar.html" class="btn btn-orange btn-lg">Chi tiết</a>
+                                    <a href="tour-detail.php" class="btn btn-orange btn-lg">Chi tiết</a>
                                 </div><!-- end t-list-info -->
                             </div><!-- end list-content -->
                         </div><!-- end t-list-block -->
@@ -243,15 +243,15 @@ session_start();
                                 </div><!-- end t-list-img -->
 
                                 <div class="list-info t-list-info">
-                                    <h3 class="block-title"><a href="tour-detail-right-sidebar.html" style="color:#331e0c; font-weight:600">Nha Trang - Vịnh San Hô </a></h3>
+                                    <h3 class="block-title"><a href="tour-detail.php" style="color:#331e0c; font-weight:600">Nha Trang - Vịnh San Hô </a></h3>
                                     <br>
                                     <p class="block-minor" style="color:#a77b2b"><i class="fa-solid fa-calendar-days"></i> 20/12/2023</p>
                                     <p class="block-minor" style="color:orange"><i class="fa-solid fa-hotel"></i> 3 -5 sao</p>
                                     <p class="block-minor" style="color:#649156"><i class="fa-solid fa-bus-simple"></i> Xe ghế ngồi</p>
-                                    
+
                                     <p style="color:#918d7b">
-                                    Hòa mình vào vẻ đẹp tuyệt vời của Nha Trang và khám phá Vịnh San Hô - một thế giới dưới đáy biển với sự đa dạng sinh học đầy mê </p>
-                                    <a href="tour-detail-right-sidebar.html" class="btn btn-orange btn-lg">Chi tiết</a>
+                                        Hòa mình vào vẻ đẹp tuyệt vời của Nha Trang và khám phá Vịnh San Hô - một thế giới dưới đáy biển với sự đa dạng sinh học đầy mê </p>
+                                    <a href="tour-detail.php" class="btn btn-orange btn-lg">Chi tiết</a>
                                 </div><!-- end t-list-info -->
                             </div><!-- end list-content -->
                         </div><!-- end t-list-block -->
@@ -278,15 +278,15 @@ session_start();
                                 </div><!-- end t-list-img -->
 
                                 <div class="list-info t-list-info">
-                                    <h3 class="block-title"><a href="tour-detail-right-sidebar.html" style="color:#331e0c; font-weight:600">Phan Thiết - KDL Tà Kú</a></h3>
+                                    <h3 class="block-title"><a href="tour-detail.php" style="color:#331e0c; font-weight:600">Phan Thiết - KDL Tà Kú</a></h3>
                                     <br>
                                     <p class="block-minor" style="color:#a77b2b"><i class="fa-solid fa-calendar-days"></i> 8/12/2023</p>
                                     <p class="block-minor" style="color:orange"><i class="fa-solid fa-hotel"></i> 3 sao</p>
                                     <p class="block-minor" style="color:#649156"><i class="fa-solid fa-bus-simple"></i> Xe ghế ngồi</p>
-                                    
+
                                     <p style="color:#918d7b">
-                                    Phan Thiết - Bãi biển yên bình, cát trắng mịn và không gian đáng nhớ. Tận hưởng những ngày thư giãn tại các resort ven biển, tham gia các hoạt động như lướt cát, thưởng thức ẩm thực biển tươi ngon </p>
-                                    <a href="tour-detail-right-sidebar.html" class="btn btn-orange btn-lg">Chi tiết</a>
+                                        Phan Thiết - Bãi biển yên bình, cát trắng mịn và không gian đáng nhớ. Tận hưởng những ngày thư giãn tại các resort ven biển, tham gia các hoạt động như lướt cát, thưởng thức ẩm thực biển tươi ngon </p>
+                                    <a href="tour-detail.php" class="btn btn-orange btn-lg">Chi tiết</a>
                                 </div><!-- end t-list-info -->
                             </div><!-- end list-content -->
                         </div><!-- end t-list-block -->
@@ -313,15 +313,15 @@ session_start();
                                 </div><!-- end t-list-img -->
 
                                 <div class="list-info t-list-info">
-                                    <h3 class="block-title"><a href="tour-detail-right-sidebar.html" style="color:#331e0c; font-weight:600">Tà Đùng - Buôn Ma Thuột</a></h3>
+                                    <h3 class="block-title"><a href="tour-detail.php" style="color:#331e0c; font-weight:600">Tà Đùng - Buôn Ma Thuột</a></h3>
                                     <br>
                                     <p class="block-minor" style="color:#a77b2b"><i class="fa-solid fa-calendar-days"></i> 8/12/2023</p>
                                     <p class="block-minor" style="color:orange"><i class="fa-solid fa-hotel"></i> 3 sao</p>
                                     <p class="block-minor" style="color:#649156"><i class="fa-solid fa-bus-simple"></i> Xe ghế ngồi</p>
-                                    
+
                                     <p style="color:#918d7b">
-                                    Buôn Ma Thuột - Hương vị của Tây Nguyên. Khám phá vườn cà phê lớn, trải nghiệm văn hóa Ê Đê, và khám phá các điểm du lịch như hồ Lak và suối Dray Nur. Hành trình không thể bỏ lỡ tại vùng đất đỏ nổi tiếng của Việt Nam. </p>
-                                    <a href="tour-detail-right-sidebar.html" class="btn btn-orange btn-lg">Chi tiết</a>
+                                        Buôn Ma Thuột - Hương vị của Tây Nguyên. Khám phá vườn cà phê lớn, trải nghiệm văn hóa Ê Đê, và khám phá các điểm du lịch như hồ Lak và suối Dray Nur. Hành trình không thể bỏ lỡ tại vùng đất đỏ nổi tiếng của Việt Nam. </p>
+                                    <a href="tour-detail.php" class="btn btn-orange btn-lg">Chi tiết</a>
                                 </div><!-- end t-list-info -->
                             </div><!-- end list-content -->
                         </div><!-- end t-list-block -->
@@ -347,15 +347,15 @@ session_start();
                                 </div><!-- end t-list-img -->
 
                                 <div class="list-info t-list-info">
-                                    <h3 class="block-title"><a href="tour-detail-right-sidebar.html" style="color:#331e0c; font-weight:600"> Sapa - Phansipan</a></h3>
+                                    <h3 class="block-title"><a href="tour-detail.php" style="color:#331e0c; font-weight:600"> Sapa - Phansipan</a></h3>
                                     <br>
                                     <p class="block-minor" style="color:#a77b2b"><i class="fa-solid fa-calendar-days"></i> 29/12/2023</p>
                                     <p class="block-minor" style="color:orange"><i class="fa-solid fa-hotel"></i> 3 sao</p>
                                     <p class="block-minor" style="color:#649156"><i class="fa-solid fa-bus-simple"></i> Xe ghế ngồi</p>
-                                    
+
                                     <p style="color:#918d7b">
-                                    Sapa là hòn ngọc của vùng núi phía Bắc, nơi có đỉnh Phan Xi Păng cao nhất Đông Nam Á. Khám phá vẻ đẹp của thung lũng sương mù, rừng núi và ruộng bậc thang. Một hành trình không thể bỏ lỡ vào thiên nhiên hoang sơ và văn hóa dân tộc độc đáo. </p>
-                                    <a href="tour-detail-right-sidebar.html" class="btn btn-orange btn-lg">Chi tiết</a>
+                                        Sapa là hòn ngọc của vùng núi phía Bắc, nơi có đỉnh Phan Xi Păng cao nhất Đông Nam Á. Khám phá vẻ đẹp của thung lũng sương mù, rừng núi và ruộng bậc thang. Một hành trình không thể bỏ lỡ vào thiên nhiên hoang sơ và văn hóa dân tộc độc đáo. </p>
+                                    <a href="tour-detail.php" class="btn btn-orange btn-lg">Chi tiết</a>
                                 </div><!-- end t-list-info -->
                             </div><!-- end list-content -->
                         </div><!-- end t-list-block -->
@@ -382,15 +382,15 @@ session_start();
                                 </div><!-- end t-list-img -->
 
                                 <div class="list-info t-list-info">
-                                    <h3 class="block-title"><a href="tour-detail-right-sidebar.html" style="color:#331e0c; font-weight:600">Đà Lạt - Thiên Đường Hoa</a></h3>
+                                    <h3 class="block-title"><a href="tour-detail.php" style="color:#331e0c; font-weight:600">Đà Lạt - Thiên Đường Hoa</a></h3>
                                     <br>
                                     <p class="block-minor" style="color:#a77b2b"><i class="fa-solid fa-calendar-days"></i> 7/12/2023</p>
                                     <p class="block-minor" style="color:orange"><i class="fa-solid fa-hotel"></i> 2 sao</p>
                                     <p class="block-minor" style="color:#649156"><i class="fa-solid fa-bus-simple"></i> Xe ghế ngồi</p>
-                                    
+
                                     <p style="color:#918d7b">
-                                    Đà Lạt, thành phố nổi tiếng với vẻ đẹp thơ mộng của những khu vườn hoa rực rỡ và các hồ nước trong lành. Khám phá hồ Xuân Hương, thác Pongour, hay thư giãn trong không khí tĩnh lặng của thành phố cao nguyên này.</p>
-                                    <a href="tour-detail-right-sidebar.html" class="btn btn-orange btn-lg">Chi tiết</a>
+                                        Đà Lạt, thành phố nổi tiếng với vẻ đẹp thơ mộng của những khu vườn hoa rực rỡ và các hồ nước trong lành. Khám phá hồ Xuân Hương, thác Pongour, hay thư giãn trong không khí tĩnh lặng của thành phố cao nguyên này.</p>
+                                    <a href="tour-detail.php" class="btn btn-orange btn-lg">Chi tiết</a>
                                 </div><!-- end t-list-info -->
                             </div><!-- end list-content -->
                         </div><!-- end t-list-block -->

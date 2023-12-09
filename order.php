@@ -71,7 +71,7 @@
         <?php if ($stmt && $stmt_detail) { ?>
             alert("Đặt tour thành công!");
             // document.getElementById("notification").innerHTML = "<h2 style='color: red; font-size:20px'>Đặt tour thành công!</h2>";
-            window.location.href = "tour-list.php";
+            window.location.href = "mybooking.php";
         <?php } ?>
     </script>
 

@@ -32,14 +32,6 @@ ob_start();
 </head>
 
 <style>
-    /* .profile-container {
-            display: flex;
-            justify-content: flex-end;
-            align-items: flex-start;
-            height: 100vh;
-            margin: 0;
-        } */
-
     .profile-container {
         width: 300px;
         margin-left: 320px;
@@ -127,14 +119,9 @@ ob_start();
                                 $loggedInUser = $_SESSION['user']; // Lấy tên người dùng từ session đã lưu
 
                                 // Hiển thị tên người dùng trên thanh menu
-                                echo '<p style="color:#2a82a5;"> Chào  ' . $loggedInUser . ' ! Chúc bạn có những trải nghiệm tuyệt vời khi sử dụng website của chúng tôi</p>'; // Thay đổi dòng này để phản ánh giao diện của bạn
-
-
-                                // Có thể thêm các thẻ HTML để hiển thị tên người dùng vào phần menu của bạn
+                                echo '<p style="color:#2a82a5;"> Chào  ' . $loggedInUser . ' ! Chúc bạn có những trải nghiệm tuyệt vời khi sử dụng website của chúng tôi</p>';
                             }
                             ?>
-                            <!-- <p>Hi Lisa, Welcome to Star Travels!</p> -->
-                            <!-- <p>All your trips booked with us will appear here and you'll be able to manage everything!</p> -->
                         </div><!-- end dashboard-heading -->
 
                         <div class="dashboard-wrapper">
@@ -142,7 +129,7 @@ ob_start();
 
                                 <div class="col-xs-12 col-sm-2 col-md-2 dashboard-nav">
                                     <ul class="nav nav-tabs nav-stacked text-center">
-                                        <li><a href="dashboard.html"><span><i class="fa fa-cogs"></i></span>Dashboard</a></li>
+                                        <li><a href="dashboard.php"><span><i class="fa fa-cogs"></i></span>Dashboard</a></li>
                                         <li class="active"><a href="#"><span><i class="fa fa-user"></i></span>Profile</a></li>
                                         <li><a href="mybooking.php"><span><i class="fa fa-briefcase"></i></span>Booking</a></li>
                                         <li><a href="wishlist.php"><span><i class="fa fa-heart"></i></span>Wishlist</a></li>
@@ -161,8 +148,6 @@ ob_start();
                                                 <div class="col-sm-5 col-md-4 user-img">
                                                     <!-- ... -->
                                                     <?php
-                                                    // Sử dụng biến để lưu đường dẫn ảnh mới sau khi upload
-                                                    $new_image_path = "duong-dan-den-anh-moi.png"; // Thay đổi thành đường dẫn thực tế
 
                                                     // Kiểm tra xem ảnh đã được cập nhật thành công hay chưa
                                                     if (isset($_SESSION['uploaded_image']) && $_SESSION['uploaded_image'] !== '') {
@@ -275,99 +260,10 @@ ob_start();
     </section><!-- end innerpage-wrapper -->
 
 
-    <!--========================= NEWSLETTER-1 ==========================-->
-    <section id="newsletter-1" class="section-padding back-size newsletter" style="background-image:url(https://dulichtoday.vn/wp-content/uploads/2017/04/Bagan-Myanmar.jpg)">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                    <h2>Subscribe Our Newsletter</h2>
-                    <p>Subscibe to receive our interesting updates</p>
-                    <form>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="email" class="form-control input-lg" placeholder="Enter your email address" required />
-                                <span class="input-group-btn"><button class="btn btn-lg"><i class="fa fa-envelope"></i></button></span>
-                            </div>
-                        </div>
-                    </form>
-                </div><!-- end columns -->
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </section><!-- end newsletter-1 -->
-
-
-    <!--======================= FOOTER =======================-->
-    <section id="footer" class="ftr-heading-o ftr-heading-mgn-1">
-
-        <div id="footer-top" class="banner-padding ftr-top-grey ftr-text-white">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 footer-widget ftr-contact">
-                        <h3 class="footer-heading">Liên hệ</h3>
-                        <ul class="list-unstyled">
-                            <li><span><i class="fa fa-map-marker"></i></span>Phường Hòa Quý - Quận Ngũ Hành Sơn - TP.Đà Nẵng</li>
-                            <li><span><i class="fa fa-phone"></i></span>+84702 579 654</li>
-                            <li><span><i class="fa fa-envelope"></i></span>tronggg2611@gmail.com</li>
-                        </ul>
-                    </div><!-- end columns -->
-
-                    <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2 footer-widget ftr-links">
-                        <h3 class="footer-heading">Website</h3>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Trang chủ</a></li>
-                            <li><a href="#">Khách sạn</a></li>
-                            <li><a href="#">Tours</a></li>
-                        </ul>
-                    </div><!-- end columns -->
-
-                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 footer-widget ftr-links ftr-pad-left">
-                        <h3 class="footer-heading">Hỗ trợ</h3>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Blogs</a></li>
-                            <li><a href="#">Liên hệ</a></li>
-                            <li><a href="#">Đăng ký</a></li>
-                            <li><a href="#">Tạo tài khoản</a></li>
-                            <li><a href="#">Maps</a></li>
-                        </ul>
-                    </div><!-- end columns -->
-
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 footer-widget ftr-about">
-                        <h3 class="footer-heading">Về chúng tôi</span></h3>
-                        <p>Chào mừng đến với trang web du lịch của chúng tôi! Khám phá những điểm đến tuyệt vời, tận hưởng các hành trình phiêu lưu và tìm hiểu về văn hóa độc đáo trên khắp thế giới. Hãy để chúng tôi dẫn dắt bạn đến những trải nghiệm du lịch không quên.</p>
-                        <ul class="social-links list-inline list-unstyled">
-                            <li><a href="#"><span><i class="fa fa-facebook"></i></span></a></li>
-                            <li><a href="#"><span><i class="fa fa-twitter"></i></span></a></li>
-                            <li><a href="#"><span><i class="fa fa-google-plus"></i></span></a></li>
-                            <li><a href="#"><span><i class="fa fa-pinterest-p"></i></span></a></li>
-                            <li><a href="#"><span><i class="fa fa-instagram"></i></span></a></li>
-                            <li><a href="#"><span><i class="fa fa-linkedin"></i></span></a></li>
-                            <li><a href="#"><span><i class="fa fa-youtube-play"></i></span></a></li>
-                        </ul>
-                    </div><!-- end columns -->
-
-                </div><!-- end row -->
-            </div><!-- end container -->
-        </div><!-- end footer-top -->
-
-        <div id="footer-bottom" class="ftr-bot-black">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="copyright">
-                        <p>© 2023 <a href="#">OTB TRAVELS</a>. All rights reserved.</p>
-                    </div><!-- end columns -->
-
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="terms">
-                        <ul class="list-unstyled list-inline">
-                            <li><a href="#">Terms & Condition</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                        </ul>
-                    </div><!-- end columns -->
-                </div><!-- end row -->
-            </div><!-- end container -->
-        </div><!-- end footer-bottom -->
-
-    </section><!-- end footer -->
+    <!-- footer -->
+    <?php
+    include 'footer.php';
+    ?>
 
 
     <div id="edit-profile" class="modal custom-modal fade" role="dialog">

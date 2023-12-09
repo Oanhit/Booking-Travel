@@ -1,7 +1,3 @@
-<?php
-// session_start();
-?>
-
 
 <div class="overlay">
             <a href="javascript:void(0)" id="close-button" class="closebtn">&times;</a>
@@ -75,15 +71,12 @@
                         <li class="dropdown <?php if($active_tab =='contact') echo 'active' ?>"><a href="contact-us.php" style="font-size: 14px;"><i class="fa-solid fa-phone"></i> Liên hệ</a></li>
 
  <?php
-// session_start(); // Bắt đầu session để sử dụng thông tin đã lưu trữ khi đăng nhập
 
-// Kiểm tra nếu người dùng đã đăng nhập bằng cách kiểm tra một biến session
-if(isset($_SESSION['user'])) {
-    $loggedInUser = $_SESSION['user']; // Lấy tên người dùng từ session đã lưu
+if (isset($_SESSION['dangnhap']) && $_SESSION['dangnhap'] === true) {
+    $username = $_SESSION['user']; // Lấy tên người dùng từ session đã lưu
 
-    // Hiển thị tên người dùng trên thanh menu
-    echo '<li class="dropdown' . ($active_tab == 'users' ? ' active' : '') . '"><a href="user-profile.php" style="color:brown; font-size:14px;"><i class="fa-solid fa-user"></i> ' . $loggedInUser . '</a></li>';
-    // Thay đổi dòng này để phản ánh giao diện của bạn
+ 
+    echo '<li class="dropdown' . ($active_tab == 'users' ? ' active' : '') . '"><a href="user-profile.php" style="color:brown; font-size:14px;"><i class="fa-solid fa-user"></i> ' . $username. '</a></li>';
     echo '<li class= "dropdown"><a href="login.php" style="color:#1c1ca3; font-size:14px;">Log Out <i class="fa-solid fa-right-from-bracket fa-bounce"></i></a></li>';
    
     // Có thể thêm các thẻ HTML để hiển thị tên người dùng vào phần menu của bạn

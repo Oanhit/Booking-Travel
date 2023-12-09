@@ -37,17 +37,11 @@ session_start();
             font-size: 18px;
             background: none;
             border: none;
-            /* Nếu bạn muốn tối ưu hơn, bạn có thể thêm các thuộc tính khác như padding, background-color, và margin tùy theo nhu cầu của bạn */
         }
-
-        /* CSS để loại bỏ viền và background khi input được focus */
         input:focus {
-            outline: none;
-            /* Loại bỏ viền xung quanh khi focus */
+            outline: none; 
             border: none;
-            /* Loại bỏ border */
             background: none;
-            /* Loại bỏ background */
         }
 
         .form-columns {
@@ -58,15 +52,12 @@ session_start();
         .column {
             flex: 1;
             padding: 0 10px;
-            /* Tùy chỉnh khoảng cách giữa cột */
         }
-
         input {
             font-size: 20px;
         }
     </style>
 </head>
-
 
 <body>
 
@@ -138,7 +129,7 @@ session_start();
 
             <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 content-side">
                 <?php
-                // Kết nối đến cơ sở dữ liệu
+                
                 include 'connect.php';
                 if (isset($_GET['id'])) {
                     $categoryId = $_GET['id'];
@@ -179,19 +170,18 @@ session_start();
                                         <div class="f-icon"><i class="fa fa-wheelchair"></i></div>
                                         <div class="f-text">
                                             <p class="f-heading">Ghế</p>
-                                            <?php
-                                            // Kết nối đến cơ sở dữ liệu
-                                            include 'connect.php'; // Chứa thông tin kết nối đến cơ sở dữ liệu
+                                            <?php                  
+                                            include 'connect.php'; 
 
                                             // Truy vấn để lấy number_people từ cơ sở dữ liệu
-                                            $sql = "SELECT number_people FROM tour WHERE id = $tourId"; // Thay 'tour' và 'tour_id' bằng tên bảng và điều kiện lấy dữ liệu của bạn
+                                            $sql = "SELECT number_people FROM tour WHERE id = $tourId";
                                             $result = $conn->query($sql);
 
                                             // if ($result->num_rows > 0) {
                                             $row = $result->fetch_assoc();
-                                            $number_people = $row["number_people"]; // Lấy number_people từ cơ sở dữ liệu
+                                            $number_people = $row["number_people"]; 
                                             // var_dump($number_people);
-                                            // Sử dụng dữ liệu number_people ở đây
+                                            
                                             echo "<p class='f-data'> " . $number_people . "</p>";
                                             // Đóng kết nối
                                             $conn->close();
@@ -204,28 +194,24 @@ session_start();
                                         <div class="f-text">
                                             <p class="f-heading">Thời gian</p>
                                             <?php
-                                            // Kết nối đến cơ sở dữ liệu 
-                                            include 'connect.php'; // Chứa thông tin kết nối đến cơ sở dữ liệu
-
+                                            
+                                            include 'connect.php'; 
                                             // Truy vấn để lấy end_date và start_date từ cơ sở dữ liệu
-                                            $sql = "SELECT end_date, star_date FROM tour WHERE id = $tourId"; // Thay 'tour' và 'tour_id' bằng tên bảng và điều kiện lấy dữ liệu của bạn
-
-                                            $result = $conn->query($sql); // đổi id thì nó vẫn hiện mà , rứa là do truy vẫn id của bảng tour bị sai, sửa đi :V , làm như nạy đó mà nó ko đúng :))
+                                            $sql = "SELECT end_date, star_date FROM tour WHERE id = $tourId"; 
+                                            $result = $conn->query($sql); 
 
                                             if ($result->num_rows > 0) {
                                                 while ($row = $result->fetch_assoc()) {
-                                                    $end_date_str = $row["end_date"]; // Lấy end_date từ cơ sở dữ liệu
-                                                    $start_date_str = $row["star_date"]; // Lấy start_date từ cơ sở dữ liệu
-
-                                                    // Chuyển đổi chuỗi ngày thành đối tượng DateTime nếu định dạng đúng
+                                                    $end_date_str = $row["end_date"]; 
+                                                    $start_date_str = $row["star_date"];                         
                                                     $end_date = DateTime::createFromFormat('Y-m-d', $end_date_str);
                                                     $start_date = DateTime::createFromFormat('Y-m-d', $start_date_str);
 
                                                     if ($end_date && $start_date) {
-                                                        // Tính số ngày giữa hai ngày nếu chuyển đổi thành công
+                                                      
                                                         $interval = $end_date->diff($start_date);
-                                                        $total_days = $interval->days; // Số ngày giữa hai ngày
-                                                        $total_nights = $total_days - 1; // Giả sử mỗi ngày đi đều có một đêm tương ứng
+                                                        $total_days = $interval->days; 
+                                                        $total_nights = $total_days - 1; 
 
                                                         echo "<p class='f-data'>" . $total_days . " ngày " . $total_nights . " đêm" . "</p>";
                                                     } else {
@@ -266,8 +252,6 @@ session_start();
                                                     <div class="column">
                                                         <!-- Cột 1 -->
                                                         <?php
-                                                        // Đoạn mã PHP để lấy dữ liệu từ cơ sở dữ liệu và hiển thị ở cột 1
-                                                        // Kết nối đến cơ sở dữ liệu (thay thế các giá trị này bằng thông tin của bạn)
                                                         include 'connect.php';
 
                                                         // Query để lấy thông tin từ bảng tour
@@ -334,8 +318,7 @@ session_start();
                                             </div><!-- end columns -->
 
                                             <div class="col-sm-8 col-md-8 tab-text">
-                                                <h3>Our Map</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                               
                                             </div><!-- end columns -->
                                         </div><!-- end row -->
                                     </div><!-- end pick-up -->

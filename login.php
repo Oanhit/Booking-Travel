@@ -20,22 +20,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Lấy thông tin từ form đăng nhập
     $login = $_POST['user']; // Số điện thoại hoặc email
     $password = $_POST['pass'];
+   
 
     // Thực hiện truy vấn để kiểm tra thông tin đăng nhập từ cơ sở dữ liệu
-    $sql = "SELECT * FROM user WHERE ( username = '$login' OR  phone = '$login' OR email = '$login') AND password = '$password'";
+    $sql = "SELECT username, phone, email FROM user WHERE ( username = '$login' OR  phone = '$login' OR email = '$login') AND password = '$password'";
     $result = $conn->query($sql);
+    
 
     if ($result && $result->num_rows == 1) {
         // Đăng nhập thành công
         $_SESSION['dangnhap'] = true;
         $_SESSION['user'] = $login; // Lưu thông tin đăng nhập vào session
-        $_SESSION['role'] = $result->fetch_assoc()['role']; // Lưu vai trò của người dùng vào session
-
+        // $_SESSION['role'] = $result->fetch_assoc()['role']; // Lưu vai trò của người dùng vào session
+        // var_dump($login);
         // Chuyển hướng đến trang index hoặc trang khác
         header("Location: index.php"); // Thay 'index.php' bằng đường dẫn tới trang index của bạn
         exit(); // Kết thúc quá trình thực thi mã PHP sau khi chuyển hướng
     } else {
-        echo "Đăng nhập thất bại. Vui lòng kiểm tra lại thông tin đăng nhập.";
+        echo '<script>alert("Đăng nhập thất bại. Vui lòng kiểm tra lại thông tin đăng nhập.");</script>';
+
     }
 }
 

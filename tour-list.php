@@ -142,11 +142,6 @@ session_start();
                                 </div><!-- end panel-default -->
 
                             </div><!-- end panel-group -->
-
-                            <div class="price-slider">
-                                <!-- <p><input type="text" id="amount" readonly></p>
-                                <div id="slider-range"></div> -->
-                            </div><!-- end price-slider -->
                         </div><!-- end side-bar-block -->
 
                         <div class="row">
@@ -181,7 +176,6 @@ session_start();
                         </div><!-- end row -->
                     </div><!-- end columns -->
                     <?php
-                    // Kết nối đến cơ sở dữ liệu
                     include 'connect.php';
                     // Thực hiện truy vấn sử dụng INNER JOIN để lấy thông tin từ cả hai bảng
                     $sql = "SELECT DISTINCT tour_category.id, tour_category.name, tour_category.status   
@@ -198,7 +192,7 @@ session_start();
                                 $tourStatus = $row['status'];
 
                     ?>
-                                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 content-side">
+                                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 content-side" >
 
                                     <div class="list-block main-block t-list-block">
                                         <div class="list-content">
@@ -294,16 +288,10 @@ session_start();
         </div><!-- end container -->
     </section><!-- end best-features -->
 
-
-    <!--========================= NEWSLETTER-1 ==========================-->
+ <!--======================= FOOTER =======================-->
     <?php
     include 'footer.php';
     ?>
-
-
-    <!--======================= FOOTER =======================-->
-
-
     <!-- Page Scripts Starts -->
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>

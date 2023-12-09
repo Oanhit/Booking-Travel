@@ -27,12 +27,10 @@ session_start();
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 
-
 <body id="booking">
 
     <!--====== LOADER =====-->
     <div class="loader"></div>
-
 
     <!--======== SEARCH-OVERLAY =========-->
     <?php
@@ -70,14 +68,9 @@ session_start();
                                 $loggedInUser = $_SESSION['user']; // Lấy tên người dùng từ session đã lưu
 
                                 // Hiển thị tên người dùng trên thanh menu
-                                echo '<p style="color:#2a82a5;"> Chào  ' . $loggedInUser . ' ! Chúc bạn có những trải nghiệm tuyệt vời khi sử dụng website của chúng tôi</p>'; // Thay đổi dòng này để phản ánh giao diện của bạn
-
-
-                                // Có thể thêm các thẻ HTML để hiển thị tên người dùng vào phần menu của bạn
+                                echo '<p style="color:#2a82a5;"> Chào  ' . $loggedInUser . ' ! Chúc bạn có những trải nghiệm tuyệt vời khi sử dụng website của chúng tôi</p>'; 
                             }
                             ?>
-                            <!-- <p>Hi Lisa, Welcome to Star Travels!</p> -->
-                            <!-- <p>All your trips booked with us will appear here and you'll be able to manage everything!</p> -->
                         </div><!-- end dashboard-heading -->
 
                         <div class="dashboard-wrapper">
@@ -183,13 +176,12 @@ session_start();
                                                     <?php
                                                                 }
                                                             }
-                                                        }
+                                                        } 
                                                     }
-                                                }
+                                                } else echo "<h2>Chưa có tour nào được đặt!</h2>";
                                             }
                                         }
                                                     ?>
-
                                                                             </tbody>
                                                                         </table>
                                                                     </div><!-- end table-responsive -->

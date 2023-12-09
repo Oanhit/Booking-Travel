@@ -30,6 +30,41 @@ session_start();
     <!-- Slick Stylesheet -->
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/slick-theme.css">
+    <style>
+        .noborder {
+            color: #0e7cb3;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 18px;
+            background: none;
+            border: none;
+            /* Nếu bạn muốn tối ưu hơn, bạn có thể thêm các thuộc tính khác như padding, background-color, và margin tùy theo nhu cầu của bạn */
+        }
+
+        /* CSS để loại bỏ viền và background khi input được focus */
+        input:focus {
+            outline: none;
+            /* Loại bỏ viền xung quanh khi focus */
+            border: none;
+            /* Loại bỏ border */
+            background: none;
+            /* Loại bỏ background */
+        }
+
+        .form-columns {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .column {
+            flex: 1;
+            padding: 0 10px;
+            /* Tùy chỉnh khoảng cách giữa cột */
+        }
+
+        input {
+            font-size: 20px;
+        }
+    </style>
 </head>
 
 
@@ -44,10 +79,8 @@ session_start();
     $active_tab = "tour";
     include 'header.php';
     ?>
-
-
     <!--================ PAGE-COVER ================-->
-    <section class="page-cover" id="cover-tour-detail">
+    <section class="page-cover" id="cover-tour-detail" style="background-image: url(https://vcdn-kinhdoanh.vnecdn.net/2022/12/16/Sun-World-Phu-Quoc-7577-1671164502.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -66,349 +99,268 @@ session_start();
     <section class="innerpage-wrapper">
         <div id="tour-details" class="innerpage-section-padding">
             <div class="container">
+                <?php
+                include 'booking.php';
+                ?>
+
                 <div class="row">
-
-                    <div class="col-xs-12 col-sm-12 col-md-3 side-bar left-side-bar">
-
-                        <div class="side-bar-block booking-form-block">
-                            <h2 class="selected-price">$568.00 <span>Orlando</span></h2>
-
-                            <div class="booking-form">
-                                <h3>Book Tour</h3>
-                                <p>Find your dream tour today</p>
-
-                                <form>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="First Name" required />
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Last Name" required />
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email" required />
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Phone" required />
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="text" class="form-control dpd3" placeholder="Booking Date" required />
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-sm-6 col-md-12 col-lg-6 no-sp-r">
-                                            <div class="form-group right-icon">
-                                                <select class="form-control">
-                                                    <option selected>Adults</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                </select>
-                                                <i class="fa fa-angle-down"></i>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6 col-md-12 col-lg-6 no-sp-l">
-                                            <div class="form-group right-icon">
-                                                <select class="form-control">
-                                                    <option selected>Children</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                </select>
-                                                <i class="fa fa-angle-down"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group right-icon">
-                                        <select class="form-control">
-                                            <option selected>Payment Method</option>
-                                            <option>Credit Card</option>
-                                            <option>Paypal</option>
-                                        </select>
-                                        <i class="fa fa-angle-down"></i>
-                                    </div>
-
-                                    <div class="checkbox custom-check">
-                                        <input type="checkbox" id="check01" name="checkbox" />
-                                        <label for="check01"><span><i class="fa fa-check"></i></span>By continuing, you are agree to the <a href="#">Terms & Conditions.</a></label>
-                                    </div>
-
-                                    <button class="btn btn-block btn-orange">Confirm Booking</button>
-                                </form>
-
-                            </div><!-- end booking-form -->
+                    <div class="col-xs-12 col-sm-6 col-md-12">
+                        <div class="side-bar-block main-block ad-block">
+                            <div class="main-img ad-img">
+                                <a href="#">
+                                    <img src="images/poster4.png" class="img-responsive" alt="car-ad" />
+                                    <div class="ad-mask">
+                                        <div class="ad-text">
+                                            <span>Luxury</span>
+                                            <h2>Tour</h2>
+                                            <span>Offer</span>
+                                        </div><!-- end ad-text -->
+                                    </div><!-- end columns -->
+                                </a>
+                            </div><!-- end ad-img -->
                         </div><!-- end side-bar-block -->
-
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6 col-md-12">
-                                <div class="side-bar-block main-block ad-block">
-                                    <div class="main-img ad-img">
-                                        <a href="#">
-                                            <img src="images/car-ad.jpg" class="img-responsive" alt="car-ad" />
-                                            <div class="ad-mask">
-                                                <div class="ad-text">
-                                                    <span>Luxury</span>
-                                                    <h2>Car</h2>
-                                                    <span>Offer</span>
-                                                </div><!-- end ad-text -->
-                                            </div><!-- end columns -->
-                                        </a>
-                                    </div><!-- end ad-img -->
-                                </div><!-- end side-bar-block -->
-                            </div><!-- end columns -->
-
-                            <div class="col-xs-12 col-sm-6 col-md-12">
-                                <div class="side-bar-block support-block">
-                                    <h3>Need Help</h3>
-                                    <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis. Est atqui timeam mnesarchum.</p>
-                                    <div class="support-contact">
-                                        <span><i class="fa fa-phone"></i></span>
-                                        <p>+1 123 1234567</p>
-                                    </div><!-- end support-contact -->
-                                </div><!-- end side-bar-block -->
-                            </div><!-- end columns -->
-
-                        </div><!-- end row -->
                     </div><!-- end columns -->
 
-                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 content-side">
 
-                        <div class="detail-slider">
-                            <div class="feature-slider">
-                                <div><img src="images/t-feature-1.jpg" class="img-responsive" alt="feature-img" /></div>
-                                <div><img src="images/t-feature-2.jpg" class="img-responsive" alt="feature-img" /></div>
-                                <div><img src="images/t-feature-3.jpg" class="img-responsive" alt="feature-img" /></div>
-                                <div><img src="images/t-feature-4.jpg" class="img-responsive" alt="feature-img" /></div>
-                                <div><img src="images/t-feature-5.jpg" class="img-responsive" alt="feature-img" /></div>
-                            </div><!-- end feature-slider -->
-
-                            <div class="feature-slider-nav">
-                                <div><img src="images/t-feature-thumb-1.jpg" class="img-responsive" alt="feature-thumb" /></div>
-                                <div><img src="images/t-feature-thumb-2.jpg" class="img-responsive" alt="feature-thumb" /></div>
-                                <div><img src="images/t-feature-thumb-3.jpg" class="img-responsive" alt="feature-thumb" /></div>
-                                <div><img src="images/t-feature-thumb-4.jpg" class="img-responsive" alt="feature-thumb" /></div>
-                                <div><img src="images/t-feature-thumb-5.jpg" class="img-responsive" alt="feature-thumb" /></div>
-                            </div><!-- end feature-slider-nav -->
-
-                            <ul class="list-unstyled features tour-features">
-                                <li>
-                                    <div class="f-icon"><i class="fa fa-wheelchair"></i></div>
-                                    <div class="f-text">
-                                        <p class="f-heading">Seats</p>
-                                        <p class="f-data">25</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="f-icon"><i class="fa fa-calendar"></i></div>
-                                    <div class="f-text">
-                                        <p class="f-heading">Duration</p>
-                                        <p class="f-data">7 DAYS</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="f-icon"><i class="fa fa-clock-o"></i></div>
-                                    <div class="f-text">
-                                        <p class="f-heading">Discount</p>
-                                        <p class="f-data">10% OFF</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div><!-- end detail-slider -->
-
-                        <div class="detail-tabs">
-                            <ul class="nav nav-tabs nav-justified">
-                                <li class="active"><a href="#tour-information" data-toggle="tab">Tour Information</a></li>
-                                <li><a href="#flight" data-toggle="tab">Flight</a></li>
-                                <li><a href="#map-overview" data-toggle="tab">View Map</a></li>
-                            </ul>
-
-                            <div class="tab-content">
-
-                                <div id="tour-information" class="tab-pane in active">
-                                    <div class="row">
-                                        <div class="col-sm-4 col-md-4 tab-img">
-                                            <img src="images/hotel-detail-tab-1.jpg" class="img-responsive" alt="flight-detail-img" />
-                                        </div><!-- end columns -->
-
-                                        <div class="col-sm-8 col-md-8 tab-text">
-                                            <h3>Tour Information</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                        </div><!-- end columns -->
-                                    </div><!-- end row -->
-                                </div><!-- end hotel-overview -->
-
-                                <div id="flight" class="tab-pane">
-                                    <div class="row">
-                                        <div class="col-sm-4 col-md-4 tab-img">
-                                            <img src="images/hotel-detail-tab-2.jpg" class="img-responsive" alt="flight-detail-img" />
-                                        </div><!-- end columns -->
-
-                                        <div class="col-sm-8 col-md-8 tab-text">
-                                            <h3>Flight</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br /> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                        </div><!-- end columns -->
-                                    </div><!-- end row -->
-                                </div><!-- end restaurant -->
-
-                                <div id="map-overview" class="tab-pane">
-                                    <div class="row">
-                                        <div class="col-sm-4 col-md-4 tab-img">
-                                            <img src="images/hotel-detail-tab-3.jpg" class="img-responsive" alt="flight-detail-img" />
-                                        </div><!-- end columns -->
-
-                                        <div class="col-sm-8 col-md-8 tab-text">
-                                            <h3>Our Map</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                        </div><!-- end columns -->
-                                    </div><!-- end row -->
-                                </div><!-- end pick-up -->
-
-                            </div><!-- end tab-content -->
-                        </div><!-- end detail-tabs -->
-
-                        <div class="available-blocks" id="available-tours">
-                            <h2>Available Tours</h2>
-                            <div class="list-block main-block t-list-block">
-                                <div class="list-content">
-                                    <div class="main-img list-img t-list-img">
-                                        <a href="tour-detail-left-sidebar.html">
-                                            <img src="images/tour-list-1.jpg" class="img-responsive" alt="tour-img" />
-                                        </a>
-                                        <div class="main-mask">
-                                            <ul class="list-unstyled list-inline offer-price-1">
-                                                <li class="price">$568.00<span class="divider">|</span><span class="pkg">7 Days Tour</span></li>
-                                                <li class="rating">
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star lightgrey"></i></span>
-                                                </li>
-                                            </ul>
-                                        </div><!-- end main-mask -->
-                                    </div><!-- end t-list-img -->
-
-                                    <div class="list-info t-list-info">
-                                        <h3 class="block-title"><a href="tour-detail-left-sidebar.html">Orlando</a></h3>
-                                        <p class="block-minor">2 Adults, 02 Kids</p>
-                                        <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis. Est atqui timeam mnesarchum at, pro an eros perpetua ullamcorper.</p>
-                                        <a href="tour-detail-left-sidebar.html" class="btn btn-orange btn-lg">View More</a>
-                                    </div><!-- end t-list-info -->
-                                </div><!-- end list-content -->
-                            </div><!-- end t-list-block -->
-
-                            <div class="list-block main-block t-list-block">
-                                <div class="list-content">
-                                    <div class="main-img list-img t-list-img">
-                                        <a href="tour-detail-left-sidebar.html">
-                                            <img src="images/tour-list-2.jpg" class="img-responsive" alt="tour-img" />
-                                        </a>
-                                        <div class="main-mask">
-                                            <ul class="list-unstyled list-inline offer-price-1">
-                                                <li class="price">$568.00<span class="divider">|</span><span class="pkg">7 Days Tour</span></li>
-                                                <li class="rating">
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star lightgrey"></i></span>
-                                                </li>
-                                            </ul>
-                                        </div><!-- end main-mask -->
-                                    </div><!-- end t-list-img -->
-
-                                    <div class="list-info t-list-info">
-                                        <h3 class="block-title"><a href="tour-detail-left-sidebar.html">London</a></h3>
-                                        <p class="block-minor">2 Adults, 02 Kids</p>
-                                        <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis. Est atqui timeam mnesarchum at, pro an eros perpetua ullamcorper.</p>
-                                        <a href="tour-detail-left-sidebar.html" class="btn btn-orange btn-lg">View More</a>
-                                    </div><!-- end t-list-info -->
-                                </div><!-- end list-content -->
-                            </div><!-- end t-list-block -->
-
-                            <div class="list-block main-block t-list-block">
-                                <div class="list-content">
-                                    <div class="main-img list-img t-list-img">
-                                        <a href="tour-detail-left-sidebar.html">
-                                            <img src="images/tour-list-3.jpg" class="img-responsive" alt="tour-img" />
-                                        </a>
-                                        <div class="main-mask">
-                                            <ul class="list-unstyled list-inline offer-price-1">
-                                                <li class="price">$568.00<span class="divider">|</span><span class="pkg">7 Days Tour</span></li>
-                                                <li class="rating">
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star lightgrey"></i></span>
-                                                </li>
-                                            </ul>
-                                        </div><!-- end main-mask -->
-                                    </div><!-- end t-list-img -->
-
-                                    <div class="list-info t-list-info">
-                                        <h3 class="block-title"><a href="tour-detail-left-sidebar.html">Australia</a></h3>
-                                        <p class="block-minor">2 Adults, 02 Kids</p>
-                                        <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis. Est atqui timeam mnesarchum at, pro an eros perpetua ullamcorper.</p>
-                                        <a href="tour-detail-left-sidebar.html" class="btn btn-orange btn-lg">View More</a>
-                                    </div><!-- end t-list-info -->
-                                </div><!-- end list-content -->
-                            </div><!-- end t-list-block -->
-
-                            <div class="list-block main-block t-list-block">
-                                <div class="list-content">
-                                    <div class="main-img list-img t-list-img">
-                                        <a href="tour-detail-left-sidebar.html">
-                                            <img src="images/tour-list-4.jpg" class="img-responsive" alt="tour-img" />
-                                        </a>
-                                        <div class="main-mask">
-                                            <ul class="list-unstyled list-inline offer-price-1">
-                                                <li class="price">$568.00<span class="divider">|</span><span class="pkg">7 Days Tour</span></li>
-                                                <li class="rating">
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star orange"></i></span>
-                                                    <span><i class="fa fa-star lightgrey"></i></span>
-                                                </li>
-                                            </ul>
-                                        </div><!-- end main-mask -->
-                                    </div><!-- end t-list-img -->
-
-                                    <div class="list-info t-list-info">
-                                        <h3 class="block-title"><a href="tour-detail-left-sidebar.html">Bangkok</a></h3>
-                                        <p class="block-minor">2 Adults, 02 Kids</p>
-                                        <p>Lorem ipsum dolor sit amet, ad duo fugit aeque fabulas, in lucilius prodesset pri. Veniam delectus ei vis. Est atqui timeam mnesarchum at, pro an eros perpetua ullamcorper.</p>
-                                        <a href="tour-detail-left-sidebar.html" class="btn btn-orange btn-lg">View More</a>
-                                    </div><!-- end t-list-info -->
-                                </div><!-- end list-content -->
-                            </div><!-- end t-list-block -->
-
-                        </div><!-- end available-tours -->
-
-                        <div class="pages">
-                            <ol class="pagination">
-                                <li><a href="#" aria-label="Previous"><span aria-hidden="true"><i class="fa fa-angle-left"></i></span></a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#" aria-label="Next"><span aria-hidden="true"><i class="fa fa-angle-right"></i></span></a></li>
-                            </ol>
-                        </div><!-- end pages -->
+                    <div class="col-xs-12 col-sm-6 col-md-12">
+                        <div class="side-bar-block support-block">
+                            <h3>Cần trợ giúp</h3>
+                            <p>Liên hệ nhanh với chúng tôi nếu bạn gặp bất kì khó khăn gì nhé! Đội ngũ chúng tôi sẽ hỗ trợ hết mình</p>
+                            <div class="support-contact">
+                                <span><i class="fa-solid fa-phone fa-bounce"></i></span>
+                                <p>+84702 579 654</p>
+                            </div><!-- end support-contact -->
+                        </div><!-- end side-bar-block -->
                     </div><!-- end columns -->
 
                 </div><!-- end row -->
-            </div><!-- end container -->
-        </div><!-- end tour-detail -->
+            </div><!-- end columns -->
+
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 content-side">
+                <?php
+                // Kết nối đến cơ sở dữ liệu
+                include 'connect.php';
+                if (isset($_GET['id'])) {
+                    $categoryId = $_GET['id'];
+                    $_SESSION['tour_categoryid'] = $categoryId;
+                    // Thực hiện truy vấn sử dụng INNER JOIN để lấy thông tin từ cả hai bảng
+                    $sql = "SELECT tour_category.id  
+                                    FROM tour_category 
+                                    INNER JOIN tour ON tour_categoryid = tour.id
+                                    WHERE tour_category.id = $categoryId";
+                   
+                    $result = $conn->query($sql);
+
+                    if ($result) {
+                        if ($result->num_rows > 0) {
+                            $row = $result->fetch_assoc();
+                            $tourId = $row['id'];
+
+                ?>
+                            <div class="detail-slider">
+                                <div class="feature-slider">
+                                    <div><img src="https://datviettour.com.vn/uploads/images/mien-nam/phu-quoc/hinh-danh-thang/850px/thi-tran-hoang-hon-phu-quoc-850px.jpg" class="img-responsive" alt="feature-img" /></div>
+                                    <div><img src="https://vcdn1-dulich.vnecdn.net/2022/04/08/dulichPhuQuoc-1649392573-9234-1649405369.jpg?w=0&h=0&q=100&dpr=2&fit=crop&s=SU6n3IvJxW1Sla0xqg31Kg" class="img-responsive" alt="feature-img" /></div>
+                                    <div><img src="https://vpq.vn/dau-tu/du-an/hoang-hon-sunset-town-phu-quoc.jpg" class="img-responsive" alt="feature-img" /></div>
+                                    <div><img src="https://dongbachanoi.com/wp-content/uploads/2020/11/safari-gia-lam.jpeg" class="img-responsive" alt="feature-img" /></div>
+                                    <div><img src="https://www.tnktravel.com/wp-content/uploads/2016/12/Vinpearl-Safari-phu-quoc.jpg" class="img-responsive" alt="feature-img" /></div>
+                                </div><!-- end feature-slider -->
+
+                                <div class="feature-slider-nav">
+                                    <div><img src="https://elitetour.com.vn/files/images/vinpearl-safari-phu-quoc(1).jpg" class="img-responsive" alt="feature-thumb" style="max-height:80px" /></div>
+                                    <div><img src="https://www.centralcons.vn/wp-content/uploads/2021/12/121101678_672984973348701_1338295634941350714_o.jpg" class="img-responsive" alt="feature-thumb" style="max-height:80px" /></div>
+                                    <div><img src="https://www.kkday.com/vi/blog/wp-content/uploads/Pink-and-White-Colorful-Brushstroke-Art-Education-YouTube-Thumbnail-min-2.jpg" class="img-responsive" alt="feature-thumb" style="max-height:80px" /></div>
+                                    <div><img src="https://static.vinwonders.com/2022/05/grand-world-phu-quoc-2.jpg" class="img-responsive" alt="feature-thumb" style="max-height:80px" /></div>
+                                    <div><img src="https://baocantho.com.vn/image/fckeditor/upload/2020/20200420/images/A1.jpg" class="img-responsive" alt="feature-thumb" style="max-height:80px" /></div>
+                                </div><!-- end feature-slider-nav -->
+
+                                <ul class="list-unstyled features tour-features">
+                                    <li>
+                                        <div class="f-icon"><i class="fa fa-wheelchair"></i></div>
+                                        <div class="f-text">
+                                            <p class="f-heading">Ghế</p>
+                                            <?php
+                                            // Kết nối đến cơ sở dữ liệu
+                                            include 'connect.php'; // Chứa thông tin kết nối đến cơ sở dữ liệu
+
+                                            // Truy vấn để lấy number_people từ cơ sở dữ liệu
+                                            $sql = "SELECT number_people FROM tour WHERE id = $tourId"; // Thay 'tour' và 'tour_id' bằng tên bảng và điều kiện lấy dữ liệu của bạn
+                                            $result = $conn->query($sql);
+
+                                            // if ($result->num_rows > 0) {
+                                            $row = $result->fetch_assoc();
+                                            $number_people = $row["number_people"]; // Lấy number_people từ cơ sở dữ liệu
+                                            // var_dump($number_people);
+                                            // Sử dụng dữ liệu number_people ở đây
+                                            echo "<p class='f-data'> " . $number_people . "</p>";
+                                            // Đóng kết nối
+                                            $conn->close();
+                                            ?>
+
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="f-icon"><i class="fa fa-calendar"></i></div>
+                                        <div class="f-text">
+                                            <p class="f-heading">Thời gian</p>
+                                            <?php
+                                            // Kết nối đến cơ sở dữ liệu 
+                                            include 'connect.php'; // Chứa thông tin kết nối đến cơ sở dữ liệu
+
+                                            // Truy vấn để lấy end_date và start_date từ cơ sở dữ liệu
+                                            $sql = "SELECT end_date, star_date FROM tour WHERE id = $tourId"; // Thay 'tour' và 'tour_id' bằng tên bảng và điều kiện lấy dữ liệu của bạn
+
+                                            $result = $conn->query($sql); // đổi id thì nó vẫn hiện mà , rứa là do truy vẫn id của bảng tour bị sai, sửa đi :V , làm như nạy đó mà nó ko đúng :))
+
+                                            if ($result->num_rows > 0) {
+                                                while ($row = $result->fetch_assoc()) {
+                                                    $end_date_str = $row["end_date"]; // Lấy end_date từ cơ sở dữ liệu
+                                                    $start_date_str = $row["star_date"]; // Lấy start_date từ cơ sở dữ liệu
+
+                                                    // Chuyển đổi chuỗi ngày thành đối tượng DateTime nếu định dạng đúng
+                                                    $end_date = DateTime::createFromFormat('Y-m-d', $end_date_str);
+                                                    $start_date = DateTime::createFromFormat('Y-m-d', $start_date_str);
+
+                                                    if ($end_date && $start_date) {
+                                                        // Tính số ngày giữa hai ngày nếu chuyển đổi thành công
+                                                        $interval = $end_date->diff($start_date);
+                                                        $total_days = $interval->days; // Số ngày giữa hai ngày
+                                                        $total_nights = $total_days - 1; // Giả sử mỗi ngày đi đều có một đêm tương ứng
+
+                                                        echo "<p class='f-data'>" . $total_days . " ngày " . $total_nights . " đêm" . "</p>";
+                                                    } else {
+                                                        echo "Lỗi chuyển đổi định dạng ngày.";
+                                                    }
+                                                }
+                                            } else {
+                                                echo "Không tìm thấy thông tin tour.";
+                                            }
+
+                                            // Đóng kết nối
+                                            $conn->close();
+                                            ?>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div><!-- end detail-slider -->
+                            <div class="detail-tabs">
+                                <ul class="nav nav-tabs nav-justified">
+                                    <li class="active"><a href="#tour-information" data-toggle="tab">Thông tin Tour</a></li>
+                                    <!-- <li><a href="#flight" data-toggle="tab">Flight</a></li> -->
+                                    <li><a href="#map-overview" data-toggle="tab">Xem Map</a></li>
+                                </ul>
+
+                                <div class="tab-content">
+
+                                    <div id="tour-information" class="tab-pane in active" style="background-color:#fff7e5">
+                                        <div class="row">
+                                            <div class="col-sm-4 col-md-4 tab-img">
+                                                <img src="images/hotel-detail-tab-1.jpg" class="img-responsive" alt="flight-detail-img" />
+                                                <p class="block-minor" style="color:orange"><i class="fa-solid fa-hotel"></i> 3 sao</p>
+                                                <p class="block-minor" style="color:#649156"><i class="fa-solid fa-bus-simple"></i> Xe ghế ngồi</p>
+                                            </div><!-- end columns -->
+
+                                            <div class="col-sm-8 col-md-8 tab-text">
+                                                <h3 style="color:brown; font-size:20px; margin-top: -20px">Thông tin Tour <i class="fa-solid fa-pen-clip"></i></h3>
+                                                <div class="form-columns">
+                                                    <div class="column">
+                                                        <!-- Cột 1 -->
+                                                        <?php
+                                                        // Đoạn mã PHP để lấy dữ liệu từ cơ sở dữ liệu và hiển thị ở cột 1
+                                                        // Kết nối đến cơ sở dữ liệu (thay thế các giá trị này bằng thông tin của bạn)
+                                                        include 'connect.php';
+
+                                                        // Query để lấy thông tin từ bảng tour
+                                                        $sql = "SELECT name, price_adult, price_child, number_people FROM tour WHERE id = $tourId"; // :)) đổi sao đây cho hn thành biến 
+
+                                                        $result = $conn->query($sql);
+
+                                                        if ($result->num_rows > 0) {
+                                                            while ($row = $result->fetch_assoc()) {
+                                                                echo 'Tour: <input type="text" class="noborder" name="name" value="' . $row["name"] . '"readonly><br>';
+                                                                echo 'Người lớn: <input type="text" class="noborder" name="price_adult" value="' . $row["price_adult"] . '.000đ/người"readonly><br>';
+                                                                echo 'Trẻ em: <input type="text" class="noborder" name="price_child" value="' . $row["price_child"] . '.000đ/người"readonly><br>';
+                                                                echo 'Số lượng: <input type="text" class="noborder" name="number_people" value="' . $row["number_people"] . ' chỗ"readonly><br>';
+                                                            }
+                                                        } else {
+                                                            echo "Không có dữ liệu trong bảng tour";
+                                                        }
+
+                                                        // Đóng kết nối
+                                                        $conn->close();
+                                                        ?>
+                                                    </div>
+
+                                                    <div class="column">
+                                                        <!-- Cột 2 -->
+                                                        <?php
+                                                        // Đoạn mã PHP để lấy dữ liệu từ cơ sở dữ liệu và hiển thị ở cột 2
+                                                        include 'connect.php';
+
+                                                        $sql = "SELECT star_date, end_date, departure_address, destination_address FROM tour WHERE id = $tourId";
+
+                                                        $result = $conn->query($sql);
+
+                                                        if ($result->num_rows > 0) {
+                                                            while ($row = $result->fetch_assoc()) {
+                                                                echo 'Ngày bắt đầu: <input type="text" class="noborder" name="start_date" value="' . $row["star_date"] . '"readonly><br>';
+                                                                echo 'Ngày kết thúc: <input type="text" class="noborder" name="end_date" value="' . $row["end_date"] . '"readonly><br>';
+                                                                echo 'Địa điểm khởi hành: <input type="text" class="noborder" name="departure_address" value="' . $row["departure_address"] . '"readonly><br>';
+                                                                echo 'Đích đến: <input type="text" class="noborder" name="destination_address" value="' . $row["destination_address"] . '"readonly><br>';
+                                                            }
+                                                        } else {
+                                                            echo "Không có dữ liệu trong bảng tour";
+                                                        }
+
+                                                        $conn->close();
+                                                        ?>
+                                                    </div>
+                                                </div>
+                                    <?php
+                                }
+                            }
+                        } else {
+                            echo "Không có thông tin tour để hiển thị với id này.";
+                        }
+                                    ?>
+                                            </div><!-- end columns -->
+                                        </div><!-- end row -->
+                                    </div><!-- end hotel-overview -->
+
+                                    <div id="map-overview" class="tab-pane">
+                                        <div class="row">
+                                            <div class="col-sm-4 col-md-4 tab-img">
+                                                <img src="images/hotel-detail-tab-3.jpg" class="img-responsive" alt="flight-detail-img" />
+                                            </div><!-- end columns -->
+
+                                            <div class="col-sm-8 col-md-8 tab-text">
+                                                <h3>Our Map</h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                            </div><!-- end columns -->
+                                        </div><!-- end row -->
+                                    </div><!-- end pick-up -->
+
+                                </div><!-- end tab-content -->
+                            </div><!-- end detail-tabs -->
+                            <div class="row">
+                                <h2 style="color:#dd830f; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">TOURS có sẵn <i class="fa-solid fa-code"></i></h2>
+                                <?php
+                                include 'list.php';
+
+                                ?>
+                                <div class="pages" style="margin-top : -70px">
+                                    <ol class="pagination">
+                                        <li><a href="#" aria-label="Previous"><span aria-hidden="true"><i class="fa fa-angle-left"></i></span></a></li>
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#" aria-label="Next"><span aria-hidden="true"><i class="fa fa-angle-right"></i></span></a></li>
+                                    </ol>
+                                </div><!-- end pages -->
+                            </div>
+            </div><!-- end tour-detail -->
     </section><!-- end innerpage-wrapper -->
-
-
     <!--======================= BEST FEATURES =====================-->
     <section id="best-features" class="banner-padding black-features">
         <div class="container">
@@ -454,7 +406,6 @@ session_start();
     include 'footer.php';
     ?>
 
-
     <!-- Page Scripts Starts -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -464,6 +415,9 @@ session_start();
     <script src="js/custom-date-picker.js"></script>
     <script src="js/custom-slick.js"></script>
     <!-- Page Scripts Ends -->
+    <!-- Input text để nhập ngày tháng dưới dạng Y-m-d -->
+
+
 
 </body>
 

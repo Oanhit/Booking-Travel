@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($conn->query($sql) === TRUE) {
             // echo "Đăng ký thành công!";
             // Có thể chuyển hướng đến trang khác sau khi đăng ký thành công
-            header("Location: login.html"); // Thay 'login.php' bằng đường dẫn tới trang đăng nhập của bạn
+            header("Location: login.php"); // Thay 'login.php' bằng đường dẫn tới trang đăng nhập của bạn
             exit();
         } else {
             echo "Đăng ký thất bại: " . $conn->error;

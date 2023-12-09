@@ -17,8 +17,8 @@ ob_start();
 
     <!-- Bootstrap Stylesheet -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    
-  
+
+
 
     <!-- Font Awesome Stylesheet -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -32,7 +32,7 @@ ob_start();
 </head>
 
 <style>
-     /* .profile-container {
+    /* .profile-container {
             display: flex;
             justify-content: flex-end;
             align-items: flex-start;
@@ -40,31 +40,34 @@ ob_start();
             margin: 0;
         } */
 
-        .profile-container {
-            width: 300px;
-            margin-left: 320px;
-            margin-top: -240px;;
-            justify-content: flex-end;
-            align-items: flex-start;
-        }
+    .profile-container {
+        width: 300px;
+        margin-left: 320px;
+        margin-top: -240px;
+        ;
+        justify-content: flex-end;
+        align-items: flex-start;
+    }
 
-        .form_user_profile {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            justify-content: flex-end;
-        }
+    .form_user_profile {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: flex-end;
+    }
 
-        .name {
-            display: block;
-            color: orange;
-            font-size: 17px;
-            font-family: serif;
-        }
-        body {
-            background: #f1f1c4;
-        }
+    .name {
+        display: block;
+        color: orange;
+        font-size: 17px;
+        font-family: serif;
+    }
+
+    body {
+        background: #f1f1c4;
+    }
 </style>
+
 <body>
 
     <!--====== LOADER =====-->
@@ -77,7 +80,7 @@ ob_start();
     ?>
 
 
-    <?php  
+    <?php
     $active_tab = "users";
     include 'header.php';
     ?>
@@ -141,9 +144,9 @@ ob_start();
                                     <ul class="nav nav-tabs nav-stacked text-center">
                                         <li><a href="dashboard.html"><span><i class="fa fa-cogs"></i></span>Dashboard</a></li>
                                         <li class="active"><a href="#"><span><i class="fa fa-user"></i></span>Profile</a></li>
-                                        <li><a href="booking.html"><span><i class="fa fa-briefcase"></i></span>Booking</a></li>
-                                        <li><a href="wishlist.html"><span><i class="fa fa-heart"></i></span>Wishlist</a></li>
-                                        <li><a href="cards.html"><span><i class="fa fa-credit-card"></i></span>My Cards</a></li>
+                                        <li><a href="mybooking.php"><span><i class="fa fa-briefcase"></i></span>Booking</a></li>
+                                        <li><a href="wishlist.php"><span><i class="fa fa-heart"></i></span>Wishlist</a></li>
+                                        <li><a href="cards.php"><span><i class="fa fa-credit-card"></i></span>My Cards</a></li>
                                     </ul>
                                 </div><!-- end columns -->
 
@@ -156,23 +159,23 @@ ob_start();
                                         <div class="panel-body">
                                             <div class="row">
                                                 <div class="col-sm-5 col-md-4 user-img">
-                                                  <!-- ... -->
-<?php
-// Sử dụng biến để lưu đường dẫn ảnh mới sau khi upload
-$new_image_path = "duong-dan-den-anh-moi.png"; // Thay đổi thành đường dẫn thực tế
+                                                    <!-- ... -->
+                                                    <?php
+                                                    // Sử dụng biến để lưu đường dẫn ảnh mới sau khi upload
+                                                    $new_image_path = "duong-dan-den-anh-moi.png"; // Thay đổi thành đường dẫn thực tế
 
-// Kiểm tra xem ảnh đã được cập nhật thành công hay chưa
-if (isset($_SESSION['uploaded_image']) && $_SESSION['uploaded_image'] !== '') {
-    echo '<img class="img-responsive" src="' . $_SESSION['uploaded_image'] . '" alt="Ảnh người dùng" style="width: 300px; height: 300px; border-radius: 80%">';
+                                                    // Kiểm tra xem ảnh đã được cập nhật thành công hay chưa
+                                                    if (isset($_SESSION['uploaded_image']) && $_SESSION['uploaded_image'] !== '') {
+                                                        echo '<img class="img-responsive" src="' . $_SESSION['uploaded_image'] . '" alt="Ảnh người dùng" style="width: 300px; height: 300px; border-radius: 80%">';
 
-    // Sau khi hiển thị, bạn có thể xoá session để không hiển thị ảnh nữa:
-    // unset($_SESSION['uploaded_image']);
-} else {
-    // Nếu không cập nhật thành công, hiển thị ảnh mặc định hoặc ảnh trước khi cập nhật
-    echo '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/800px-User-avatar.svg.png" class="img-responsive" alt="user-img" />';
-}
-?>
-<!-- ... -->
+                                                        // Sau khi hiển thị, bạn có thể xoá session để không hiển thị ảnh nữa:
+                                                        // unset($_SESSION['uploaded_image']);
+                                                    } else {
+                                                        // Nếu không cập nhật thành công, hiển thị ảnh mặc định hoặc ảnh trước khi cập nhật
+                                                        echo '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/800px-User-avatar.svg.png" class="img-responsive" alt="user-img" />';
+                                                    }
+                                                    ?>
+                                                    <!-- ... -->
 
                                                     <div class="profile-container">
                                                         <?php
@@ -295,11 +298,11 @@ if (isset($_SESSION['uploaded_image']) && $_SESSION['uploaded_image'] !== '') {
 
     <!--======================= FOOTER =======================-->
     <section id="footer" class="ftr-heading-o ftr-heading-mgn-1">
-        
+
         <div id="footer-top" class="banner-padding ftr-top-grey ftr-text-white">
             <div class="container">
                 <div class="row">
-                    
+
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 footer-widget ftr-contact">
                         <h3 class="footer-heading">Liên hệ</h3>
                         <ul class="list-unstyled">
@@ -308,7 +311,7 @@ if (isset($_SESSION['uploaded_image']) && $_SESSION['uploaded_image'] !== '') {
                             <li><span><i class="fa fa-envelope"></i></span>tronggg2611@gmail.com</li>
                         </ul>
                     </div><!-- end columns -->
-                    
+
                     <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2 footer-widget ftr-links">
                         <h3 class="footer-heading">Website</h3>
                         <ul class="list-unstyled">
@@ -317,7 +320,7 @@ if (isset($_SESSION['uploaded_image']) && $_SESSION['uploaded_image'] !== '') {
                             <li><a href="#">Tours</a></li>
                         </ul>
                     </div><!-- end columns -->
-                    
+
                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 footer-widget ftr-links ftr-pad-left">
                         <h3 class="footer-heading">Hỗ trợ</h3>
                         <ul class="list-unstyled">
@@ -342,7 +345,7 @@ if (isset($_SESSION['uploaded_image']) && $_SESSION['uploaded_image'] !== '') {
                             <li><a href="#"><span><i class="fa fa-youtube-play"></i></span></a></li>
                         </ul>
                     </div><!-- end columns -->
-                    
+
                 </div><!-- end row -->
             </div><!-- end container -->
         </div><!-- end footer-top -->
@@ -353,7 +356,7 @@ if (isset($_SESSION['uploaded_image']) && $_SESSION['uploaded_image'] !== '') {
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="copyright">
                         <p>© 2023 <a href="#">OTB TRAVELS</a>. All rights reserved.</p>
                     </div><!-- end columns -->
-                    
+
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="terms">
                         <ul class="list-unstyled list-inline">
                             <li><a href="#">Terms & Condition</a></li>
@@ -363,7 +366,7 @@ if (isset($_SESSION['uploaded_image']) && $_SESSION['uploaded_image'] !== '') {
                 </div><!-- end row -->
             </div><!-- end container -->
         </div><!-- end footer-bottom -->
-        
+
     </section><!-- end footer -->
 
 
@@ -406,7 +409,7 @@ if (isset($_SESSION['uploaded_image']) && $_SESSION['uploaded_image'] !== '') {
                         <br>
                         <!-- <input type="submit" value="Gửi thông tin"> -->
 
-                        <button  class="btn btn-orange"  style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Lưu</button>
+                        <button class="btn btn-orange" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Lưu</button>
                     </form>
                 </div><!-- end modal-bpdy -->
             </div><!-- end modal-content -->

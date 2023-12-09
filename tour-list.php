@@ -40,19 +40,15 @@ session_start();
     <link rel="stylesheet" href="css/magnific-popup.css">
 </head>
 
-
 <body>
-
     <!--====== LOADER =====-->
     <div class="loader"></div>
 
-
-    <!--======== SEARCH-OVERLAY =========-->
+    <!--======== Header =========-->
     <?php
     $active_tab = "tour";
     include 'header.php';
     ?>
-
 
     <!--================== PAGE-COVER =================-->
     <section class="page-cover" id="cover-tour-grid-list" style="background-image: url(https://images.baodantoc.vn/uploads/2022/Th%C3%A1ng%208/Ng%C3%A0y_29/Thah/1545276593_305_bali-guide_jpg.jpg)">
@@ -68,7 +64,6 @@ session_start();
             </div><!-- end row -->
         </div><!-- end container -->
     </section><!-- end page-cover -->
-
 
     <!--===== INNERPAGE-WRAPPER ====-->
     <section class="innerpage-wrapper">
@@ -185,232 +180,74 @@ session_start();
 
                         </div><!-- end row -->
                     </div><!-- end columns -->
+                    <?php
+                    // Kết nối đến cơ sở dữ liệu
+                    include 'connect.php';
+                    // Thực hiện truy vấn sử dụng INNER JOIN để lấy thông tin từ cả hai bảng
+                    $sql = "SELECT DISTINCT tour_category.id, tour_category.name, tour_category.status   
+                             FROM tour_category 
+                             INNER JOIN tour ON tour_categoryid = tour.id";
 
-                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 content-side">
+                    $result = $conn->query($sql);
+                    if ($result) {
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                $tourId = $row['id'];
+                                $_SESSION['tour_categoryid'] = $tourId;
+                                $tourName = $row['name'];
+                                $tourStatus = $row['status'];
 
-                        <div class="list-block main-block t-list-block">
-                            <div class="list-content">
-                                <div class="main-img list-img t-list-img">
-                                    <a href="tour-detail.php">
-                                        <img src="https://cdn.tuoitre.vn/zoom/700_525/471584752817336320/2023/5/11/photo-1683781481480-1683781481544575599709-0-76-1000-1986-crop-1683781630912431451134.jpg" class="img-responsive" alt="tour-img" />
-                                    </a>
-                                    <div class="main-mask">
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price">6,900,000đ<span class="divider">|</span><span class="pkg"><i class="fa-solid fa-clock"></i> 3N2Đ</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div><!-- end main-mask -->
-                                </div><!-- end t-list-img -->
+                    ?>
+                                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 content-side">
 
-                                <div class="list-info t-list-info">
-                                    <h3 class="block-title"><a href="tour-detail.php" style="color:#331e0c; font-weight:600">Phú Quốc - Hà Tiên </a></h3>
-                                    <br>
-                                    <p class="block-minor" style="color:#a77b2b"><i class="fa-solid fa-calendar-days"></i> 29/12/2023</p>
-                                    <p class="block-minor" style="color:orange"><i class="fa-solid fa-hotel"></i> 3 sao</p>
-                                    <p class="block-minor" style="color:#649156"><i class="fa-solid fa-bus-simple"></i> Xe ghế ngồi</p>
+                                    <div class="list-block main-block t-list-block">
+                                        <div class="list-content">
+                                            <div class="main-img list-img t-list-img">
+                                                <?php
+                                                $url = "tour-detail.php?id=" . $tourId;
+                                                
+                                                // var_dump($tourId);
+                                                ?>
+                                                <a href="<?php echo $url; ?>">
+                                                    <img src="https://cdn.tuoitre.vn/zoom/700_525/471584752817336320/2023/5/11/photo-1683781481480-1683781481544575599709-0-76-1000-1986-crop-1683781630912431451134.jpg" class="img-responsive" alt="tour-img" />
+                                                </a>
+                                                <div class="main-mask">
+                                                    <ul class="list-unstyled list-inline offer-price-1">
+                                                        <li class="price">6,900,000đ<span class="divider">|</span><span class="pkg"><i class="fa-solid fa-clock"></i> 3N2Đ
+                                                            </span></li>
+                                                        <li class="rating">
+                                                            <span><i class="fa fa-star orange"></i></span>
+                                                            <span><i class="fa fa-star orange"></i></span>
+                                                            <span><i class="fa fa-star orange"></i></span>
+                                                            <span><i class="fa fa-star orange"></i></span>
+                                                            <span><i class="fa fa-star lightgrey"></i></span>
+                                                        </li>
+                                                    </ul>
+                                                </div><!-- end main-mask -->
+                                            </div><!-- end t-list-img -->
 
-                                    <p style="color:#918d7b">
-                                        Khám phá hòn đảo ngọc Phú Quốc với chúng tôi - nơi kết nối với biển cả tuyệt đẹp, bãi biển trắng mịn và trải nghiệm văn hóa độc đáo. Đồng hành cùng chúng tôi để tận hưởng sự hòa quyện giữa thiên nhiên hoang sơ và dịch vụ du lịch chuyên nghiệp. </p>
-                                    <a href="tour-detail.php" class="btn btn-orange btn-lg">Chi tiết</a>
-                                </div><!-- end t-list-info -->
-                            </div><!-- end list-content -->
-                        </div><!-- end t-list-block -->
+                                            <div class="list-info t-list-info">
+                                                <h3 class="block-title"><a href="tour-detail.php" style="color:#331e0c; font-weight:600"><?php echo $tourName; ?></a></h3>
+                                                <br>
+                                                <p class="block-minor" style="color:#a77b2b"><i class="fa-solid fa-calendar-days"></i> Click để xem chi tiết</p>
+                                                <p class="block-minor" style="color:orange"><i class="fa-solid fa-hotel"></i> 3 sao</p>
+                                                <p class="block-minor" style="color:#649156"><i class="fa-solid fa-bus-simple"></i> Xe ghế ngồi</p>
 
-                        <div class="list-block main-block t-list-block">
-                            <div class="list-content">
-                                <div class="main-img list-img t-list-img">
-                                    <a href="tour-detail-left-sidebar.html">
-                                        <img src="https://datviettour.com.vn/uploads/images/mien-trung/nha-trang/hinh-dai-dien/vinwonders-nha-trang-488px-2.jpg" class="img-responsive" alt="tour-img" />
-                                    </a>
-                                    <div class="main-mask">
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price">2,486,000đ<span class="divider">|</span><span class="pkg"><i class="fa-solid fa-clock"></i> 3N3Đ</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div><!-- end main-mask -->
-                                </div><!-- end t-list-img -->
-
-                                <div class="list-info t-list-info">
-                                    <h3 class="block-title"><a href="tour-detail.php" style="color:#331e0c; font-weight:600">Nha Trang - Vịnh San Hô </a></h3>
-                                    <br>
-                                    <p class="block-minor" style="color:#a77b2b"><i class="fa-solid fa-calendar-days"></i> 20/12/2023</p>
-                                    <p class="block-minor" style="color:orange"><i class="fa-solid fa-hotel"></i> 3 -5 sao</p>
-                                    <p class="block-minor" style="color:#649156"><i class="fa-solid fa-bus-simple"></i> Xe ghế ngồi</p>
-
-                                    <p style="color:#918d7b">
-                                        Hòa mình vào vẻ đẹp tuyệt vời của Nha Trang và khám phá Vịnh San Hô - một thế giới dưới đáy biển với sự đa dạng sinh học đầy mê </p>
-                                    <a href="tour-detail.php" class="btn btn-orange btn-lg">Chi tiết</a>
-                                </div><!-- end t-list-info -->
-                            </div><!-- end list-content -->
-                        </div><!-- end t-list-block -->
-
-
-                        <div class="list-block main-block t-list-block">
-                            <div class="list-content">
-                                <div class="main-img list-img t-list-img">
-                                    <a href="tour-detail-left-sidebar.html">
-                                        <img src="https://elitetour.com.vn/files/images/Blogs/mui%20ne%20phan%20thiet%206.jpg" class="img-responsive" alt="tour-img" />
-                                    </a>
-                                    <div class="main-mask">
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price">2,686,000đ<span class="divider">|</span><span class="pkg"><i class="fa-solid fa-clock"></i> 3N2Đ</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div><!-- end main-mask -->
-                                </div><!-- end t-list-img -->
-
-                                <div class="list-info t-list-info">
-                                    <h3 class="block-title"><a href="tour-detail.php" style="color:#331e0c; font-weight:600">Phan Thiết - KDL Tà Kú</a></h3>
-                                    <br>
-                                    <p class="block-minor" style="color:#a77b2b"><i class="fa-solid fa-calendar-days"></i> 8/12/2023</p>
-                                    <p class="block-minor" style="color:orange"><i class="fa-solid fa-hotel"></i> 3 sao</p>
-                                    <p class="block-minor" style="color:#649156"><i class="fa-solid fa-bus-simple"></i> Xe ghế ngồi</p>
-
-                                    <p style="color:#918d7b">
-                                        Phan Thiết - Bãi biển yên bình, cát trắng mịn và không gian đáng nhớ. Tận hưởng những ngày thư giãn tại các resort ven biển, tham gia các hoạt động như lướt cát, thưởng thức ẩm thực biển tươi ngon </p>
-                                    <a href="tour-detail.php" class="btn btn-orange btn-lg">Chi tiết</a>
-                                </div><!-- end t-list-info -->
-                            </div><!-- end list-content -->
-                        </div><!-- end t-list-block -->
-
-
-                        <div class="list-block main-block t-list-block">
-                            <div class="list-content">
-                                <div class="main-img list-img t-list-img">
-                                    <a href="tour-detail-left-sidebar.html">
-                                        <img src="https://datviettour.com.vn/uploads/images/tay-nguyen/ta-dung/hinh-dai-dien/ta-dung-488px.jpg" class="img-responsive" alt="tour-img" />
-                                    </a>
-                                    <div class="main-mask">
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price">2,786,000đ<span class="divider">|</span><span class="pkg"><i class="fa-solid fa-clock"></i> 3N2Đ</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div><!-- end main-mask -->
-                                </div><!-- end t-list-img -->
-
-                                <div class="list-info t-list-info">
-                                    <h3 class="block-title"><a href="tour-detail.php" style="color:#331e0c; font-weight:600">Tà Đùng - Buôn Ma Thuột</a></h3>
-                                    <br>
-                                    <p class="block-minor" style="color:#a77b2b"><i class="fa-solid fa-calendar-days"></i> 8/12/2023</p>
-                                    <p class="block-minor" style="color:orange"><i class="fa-solid fa-hotel"></i> 3 sao</p>
-                                    <p class="block-minor" style="color:#649156"><i class="fa-solid fa-bus-simple"></i> Xe ghế ngồi</p>
-
-                                    <p style="color:#918d7b">
-                                        Buôn Ma Thuột - Hương vị của Tây Nguyên. Khám phá vườn cà phê lớn, trải nghiệm văn hóa Ê Đê, và khám phá các điểm du lịch như hồ Lak và suối Dray Nur. Hành trình không thể bỏ lỡ tại vùng đất đỏ nổi tiếng của Việt Nam. </p>
-                                    <a href="tour-detail.php" class="btn btn-orange btn-lg">Chi tiết</a>
-                                </div><!-- end t-list-info -->
-                            </div><!-- end list-content -->
-                        </div><!-- end t-list-block -->
-
-                        <div class="list-block main-block t-list-block">
-                            <div class="list-content">
-                                <div class="main-img list-img t-list-img">
-                                    <a href="tour-detail-left-sidebar.html">
-                                        <img src="https://datviettour.com.vn/uploads/images/mien-bac/sapa/hinh-dai-dien/dinh-fansipan-488px.png" class="img-responsive" alt="tour-img" />
-                                    </a>
-                                    <div class="main-mask">
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price">3,900,000đ<span class="divider">|</span><span class="pkg"><i class="fa-solid fa-clock"></i> 3N2Đ</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div><!-- end main-mask -->
-                                </div><!-- end t-list-img -->
-
-                                <div class="list-info t-list-info">
-                                    <h3 class="block-title"><a href="tour-detail.php" style="color:#331e0c; font-weight:600"> Sapa - Phansipan</a></h3>
-                                    <br>
-                                    <p class="block-minor" style="color:#a77b2b"><i class="fa-solid fa-calendar-days"></i> 29/12/2023</p>
-                                    <p class="block-minor" style="color:orange"><i class="fa-solid fa-hotel"></i> 3 sao</p>
-                                    <p class="block-minor" style="color:#649156"><i class="fa-solid fa-bus-simple"></i> Xe ghế ngồi</p>
-
-                                    <p style="color:#918d7b">
-                                        Sapa là hòn ngọc của vùng núi phía Bắc, nơi có đỉnh Phan Xi Păng cao nhất Đông Nam Á. Khám phá vẻ đẹp của thung lũng sương mù, rừng núi và ruộng bậc thang. Một hành trình không thể bỏ lỡ vào thiên nhiên hoang sơ và văn hóa dân tộc độc đáo. </p>
-                                    <a href="tour-detail.php" class="btn btn-orange btn-lg">Chi tiết</a>
-                                </div><!-- end t-list-info -->
-                            </div><!-- end list-content -->
-                        </div><!-- end t-list-block -->
-
-
-                        <div class="list-block main-block t-list-block">
-                            <div class="list-content">
-                                <div class="main-img list-img t-list-img">
-                                    <a href="tour-detail-left-sidebar.html">
-                                        <img src="https://taxilienkhuong.com/wp-content/uploads/2022/12/nhung-su-kien-le-hoi-noi-bat-o-da-lat-1.jpg" class="img-responsive" alt="tour-img" />
-                                    </a>
-                                    <div class="main-mask">
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price">3,800,000đ<span class="divider">|</span><span class="pkg"><i class="fa-solid fa-clock"></i> 4N3Đ</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div><!-- end main-mask -->
-                                </div><!-- end t-list-img -->
-
-                                <div class="list-info t-list-info">
-                                    <h3 class="block-title"><a href="tour-detail.php" style="color:#331e0c; font-weight:600">Đà Lạt - Thiên Đường Hoa</a></h3>
-                                    <br>
-                                    <p class="block-minor" style="color:#a77b2b"><i class="fa-solid fa-calendar-days"></i> 7/12/2023</p>
-                                    <p class="block-minor" style="color:orange"><i class="fa-solid fa-hotel"></i> 2 sao</p>
-                                    <p class="block-minor" style="color:#649156"><i class="fa-solid fa-bus-simple"></i> Xe ghế ngồi</p>
-
-                                    <p style="color:#918d7b">
-                                        Đà Lạt, thành phố nổi tiếng với vẻ đẹp thơ mộng của những khu vườn hoa rực rỡ và các hồ nước trong lành. Khám phá hồ Xuân Hương, thác Pongour, hay thư giãn trong không khí tĩnh lặng của thành phố cao nguyên này.</p>
-                                    <a href="tour-detail.php" class="btn btn-orange btn-lg">Chi tiết</a>
-                                </div><!-- end t-list-info -->
-                            </div><!-- end list-content -->
-                        </div><!-- end t-list-block -->
-
-
-                        <div class="pages">
-                            <ol class="pagination">
-                                <li><a href="#" aria-label="Previous"><span aria-hidden="true"><i class="fa fa-angle-left"></i></span></a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#" aria-label="Next"><span aria-hidden="true"><i class="fa fa-angle-right"></i></span></a></li>
-                            </ol>
-                        </div><!-- end pages -->
-                    </div><!-- end columns -->
-
-
-
-
+                                                <p style="color:#918d7b">
+                                                    <!-- vd như ở đay lưuw trong csdl là biến chitiet thì select xong truyên cai bien đó vô đây, mấy cái thẻ phía trên cũng tuơng tự -->
+                                                    <?php echo $tourStatus ?>
+                                                </p>
+                                                <a href="tour-detail.php" class="btn btn-orange btn-lg">Chi tiết</a>
+                                            </div><!-- end t-list-info -->
+                                        </div><!-- end list-content -->
+                                    </div><!-- end t-list-block -->
+                                </div>
+                    <?php
+                            }
+                        }
+                        $conn->close();
+                    }
+                    ?>
 
                 </div><!-- end row -->
             </div><!-- end container -->

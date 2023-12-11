@@ -68,7 +68,7 @@ session_start();
                                 $loggedInUser = $_SESSION['user']; // Lấy tên người dùng từ session đã lưu
 
                                 // Hiển thị tên người dùng trên thanh menu
-                                echo '<p style="color:#2a82a5;"> Chào  ' . $loggedInUser . ' ! Chúc bạn có những trải nghiệm tuyệt vời khi sử dụng website của chúng tôi</p>'; 
+                                echo '<p style="color:#2a82a5;"> Chào  ' . $loggedInUser . ' ! Chúc bạn có những trải nghiệm tuyệt vời khi sử dụng website của chúng tôi</p>';
                             }
                             ?>
                         </div><!-- end dashboard-heading -->
@@ -112,7 +112,7 @@ session_start();
                                             if ($result && $result->num_rows > 0) {
                                                 $row = $result->fetch_assoc();
                                                 $userID = $row['id'];
- 
+
                                                 // Truy vấn để lấy thông tin từ bảng order
                                                 $sql = "SELECT tourid FROM `order` WHERE userid = '$userID' LIMIT 0, 25";
                                                 $result_data = $conn->query($sql);
@@ -138,53 +138,58 @@ session_start();
                                                                 $orderdate = $row_order['orderdate'];
                                                                 $total = $row_order['total'];
 
-                                                                // Truy vấn để lấy name, email, phone từ bảng orderdetail
-                                                                $sql_orderdetail = "SELECT od.name, od.email, od.phone 
-                                                                                    FROM order_detail od 
-                                                                                    INNER JOIN `order` o ON od.orderid = o.id ";
+
+                                                                $sql_orderdetail = "SELECT  od.name, od.email, od.phone 
+                                                                FROM order_detail od 
+                                                                INNER JOIN `order` o ON od.orderid = o.id
+                                                                WHERE o.tourid = '$tourid'";
                                                                 $result_orderdetail = $conn->query($sql_orderdetail);
 
                                                                 if ($result_orderdetail && $result_orderdetail->num_rows > 0) {
-                                                                    $row_orderdetail = $result_orderdetail->fetch_assoc();
-                                                                    $name_orderdetail = $row_orderdetail['name'];
-                                                                    $email = $row_orderdetail['email'];
-                                                                    $phone = $row_orderdetail['phone'];
+                                                                    while ($row_orderdetail = $result_orderdetail->fetch_assoc()) {
+                                                                        $name_orderdetail = $row_orderdetail['name'];
+                                                                        $email = $row_orderdetail['email'];
+                                                                        $phone = $row_orderdetail['phone'];
+
                                         ?>
 
-                                                                    <div class="table-responsive">
-                                                                        <table class="table table-hover">
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td class="dash-list-icon booking-list-date">
-                                                                                        <div class="b-date">
-                                                                                            <h3><i class="fa-regular fa-circle-check"></i></h3>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                    <td class="dash-list-text booking-list-detail">
-                                                                                        <h3><?php echo $nametour  ?></h3>
-                                                                                        <ul class="list-unstyled booking-info">
-                                                                                            <li><span>Ngày đặt:</span> <?php echo $orderdate ?></li>
-                                                                                            <li><span style="color:red">Thành tiền:</span> <?php echo $total . ".000 VNĐ"; ?></li>
-                                                                                            <li><span>Khách hàng:</span> <?php echo $name_orderdetail ?> <span class="line">|</span><span class="line"><?php echo $email ?> |</span><?php echo $phone ?></li>
-                                                                                        </ul>
-                                                                                        <button class="btn btn-orange">Message</button>
-                                                                                    </td>
-                                                                                    <td class="dash-list-btn"><button class="btn btn-orange">Huỷ</button><button class="btn">Thanh toán</button></td>
-                                                                                </tr>
+                                                                        <div class="table-responsive">
+                                                                            <table class="table table-hover">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td class="dash-list-icon booking-list-date">
+                                                                                            <div class="b-date">
+                                                                                                <h3><i class="fa-regular fa-circle-check"></i></h3>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td class="dash-list-text booking-list-detail">
+                                                                                            <h3><?php echo $nametour  ?></h3>
+                                                                                            <ul class="list-unstyled booking-info">
+                                                                                                <li><span>Ngày đặt:</span> <?php echo $orderdate ?></li>
+                                                                                                <li><span style="color:red">Thành tiền:</span> <?php echo $total . ".000 VNĐ"; ?></li>
+                                                                                                <li><span>Khách hàng:</span> <?php echo $name_orderdetail ?> <span class="line">|</span><span class="line"><?php echo $email ?> |</span><?php echo $phone ?></li>
+                                                                                            </ul>
+                                                                                            <button class="btn btn-orange">Message</button>
+                                                                                        </td>
+                                                                                        <td class="dash-list-btn"><button class="btn btn-orange">Huỷ</button><button class="btn">Thanh toán</button></td>
+                                                                                    </tr>
 
 
                                                     <?php
+                                                                    }
                                                                 }
                                                             }
-                                                        } 
+                                                        }
                                                     }
                                                 } else echo "<h2>Chưa có tour nào được đặt!</h2>";
                                             }
                                         }
+
+
                                                     ?>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div><!-- end table-responsive -->
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div><!-- end table-responsive -->
                                     </div><!-- end booking-listings -->
 
                                 </div><!-- end columns -->
@@ -202,11 +207,11 @@ session_start();
     <?php
     include 'footer.php';
     ?>
-                <!-- Page Scripts Starts -->
-                <script src="js/jquery.min.js"></script>
-                <script src="js/bootstrap.min.js"></script>
-                <script src="js/custom-navigation.js"></script>
-                <!-- Page Scripts Ends -->
+    <!-- Page Scripts Starts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom-navigation.js"></script>
+    <!-- Page Scripts Ends -->
 </body>
 
 </html>

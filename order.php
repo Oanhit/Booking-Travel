@@ -15,7 +15,7 @@
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $number_people = $_POST['number_people'];
+    // $number_people = $_POST['number_people'];
     $number_adult = isset($_POST['number_adult']) ? intval($_POST['number_adult']) : 0;
     $number_child = isset($_POST['number_child']) ? intval($_POST['number_child']) : 0;
 
@@ -57,8 +57,9 @@
                 $orderid = $conn->insert_id; // Lấy orderid vừa được tạo
                 // var_dump($tourid);
                 // Thêm dữ liệu vào bảng `order_detail`
+                $number_people = $number_adult + $number_child;
                 $subtotal = ($number_adult * $priceAdult) + ($number_child * $priceChild); // Tính subtotal dựa trên số người và số trẻ em
-                $stmt_detail = $conn->prepare("INSERT INTO order_detail (name, email, phone, number_people, number_adult, number_child, subtotal, orderid) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt_detail = $conn->prepare("INSERT INTO order_detail (name, email, phone, number_people , number_adult, number_child, subtotal, orderid) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
                 $stmt_detail->bind_param("sssiiidi", $name, $email, $phone, $number_people, $number_adult, $number_child, $subtotal, $orderid);
                 $stmt_detail->execute();
             }

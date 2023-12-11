@@ -65,9 +65,7 @@
                             <input type="text" class="form-control" name="phone" placeholder="Số điện thoại" required />
                         </div>
 
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="number_people" placeholder="Tổng số người" required />
-                        </div>
+                        
                         <div class="row">
 
                             <div class="col-sm-6 col-md-12 col-lg-6 no-sp-r">

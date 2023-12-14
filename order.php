@@ -1,3 +1,24 @@
+<?php
+session_start();
+include 'middleware.php';
+
+// Kiểm tra trạng thái đăng nhập
+if (!isset($_SESSION['user'])) {
+    echo '<script>alert("Bạn cần đăng nhập trước khi đặt tour.");';
+    echo 'window.location.href = "login.php";</script>';
+    exit(); // Chấm dứt quá trình thực thi sau khi chuyển hướng
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Các phần còn lại của trang -->
+</head>
+<body>
+    <!-- Nội dung của trang -->
+</body>
+</html>
+
 <!DOCTYPE html>
 <html lang="en">
 

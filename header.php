@@ -77,7 +77,7 @@ if (isset($_SESSION['dangnhap']) && $_SESSION['dangnhap'] === true) {
 
  
     echo '<li class="dropdown' . ($active_tab == 'users' ? ' active' : '') . '"><a href="user-profile.php" style="color:brown; font-size:14px;"><i class="fa-solid fa-user"></i> ' . $username. '</a></li>';
-    echo '<li class= "dropdown"><a href="login.php" style="color:#1c1ca3; font-size:14px;">Log Out <i class="fa-solid fa-right-from-bracket fa-bounce"></i></a></li>';
+    echo '<li class= "dropdown"><a href=" logout.php" style="color:#1c1ca3; font-size:14px;">Log Out <i class="fa-solid fa-right-from-bracket fa-bounce"></i></a></li>';
    
     // Có thể thêm các thẻ HTML để hiển thị tên người dùng vào phần menu của bạn
 } else {

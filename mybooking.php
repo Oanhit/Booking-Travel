@@ -114,12 +114,13 @@ session_start();
                                                 $userID = $row['id'];
 
                                                 // Truy vấn để lấy thông tin từ bảng order
-                                                $sql = "SELECT tourid FROM `order` WHERE userid = '$userID' LIMIT 0, 25";
+                                                $sql = "SELECT tourid,id FROM `order` WHERE userid = '$userID' LIMIT 0, 25";
                                                 $result_data = $conn->query($sql);
 
                                                 if ($result_data && $result_data->num_rows > 0) {
                                                     while ($row_data = $result_data->fetch_assoc()) {
                                                         $tourid = $row_data['tourid'];
+                                                        $orderid = $row_data['id'];
                                                         //  var_dump($tourid);   
 
                                                         // Truy vấn để lấy thông tin từ bảng tour
@@ -130,19 +131,21 @@ session_start();
                                                             $row_tour = $result_tour->fetch_assoc();
                                                             $nametour = $row_tour['name'];
                                                             // echo "Tên tour: " . $nametour;
-                                                            $sql_order = "SELECT orderdate, total FROM `order` WHERE tourid = '$tourid' LIMIT 0, 25";
+                                                            $sql_order = "SELECT orderdate, total FROM `order` WHERE id = '$orderid' LIMIT 0, 25";
                                                             $result_order = $conn->query($sql_order);
 
                                                             if ($result_order && $result_order->num_rows > 0) {
                                                                 $row_order = $result_order->fetch_assoc();
                                                                 $orderdate = $row_order['orderdate'];
                                                                 $total = $row_order['total'];
+                                                                // var_dump($total);
 
 
-                                                                $sql_orderdetail = "SELECT  od.name, od.email, od.phone 
-                                                                FROM order_detail od 
-                                                                INNER JOIN `order` o ON od.orderid = o.id
-                                                                WHERE o.tourid = '$tourid'";
+                                                                $sql_orderdetail = "SELECT od.name, od.email, od.phone 
+                                                                                    FROM order_detail od 
+                                                                                    INNER JOIN `order` o ON od.orderid = o.id
+                                                                                    WHERE o.tourid = '$tourid' AND o.userid = '$userID'";
+
                                                                 $result_orderdetail = $conn->query($sql_orderdetail);
 
                                                                 if ($result_orderdetail && $result_orderdetail->num_rows > 0) {
@@ -150,7 +153,7 @@ session_start();
                                                                         $name_orderdetail = $row_orderdetail['name'];
                                                                         $email = $row_orderdetail['email'];
                                                                         $phone = $row_orderdetail['phone'];
-
+                                                                      
                                         ?>
 
                                                                         <div class="table-responsive">

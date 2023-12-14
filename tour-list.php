@@ -79,68 +79,24 @@ session_start();
 
                             <div class="panels-group">
 
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <a href="#panel-1" data-toggle="collapse">Địa điểm<span><i class="fa fa-angle-down"></i></span></a>
-                                    </div><!-- end panel-heading -->
-
-                                    <div id="panel-1" class="panel-collapse collapse">
-                                        <div class="panel-body text-left">
-                                            <ul class="list-unstyled">
-                                                <li class="custom-check"><input type="checkbox" id="check01" name="checkbox" />
-                                                    <label for="check01"><span><i class="fa fa-check"></i></span>Đà Nẵng</label>
-                                                </li>
-                                                <li class="custom-check"><input type="checkbox" id="check02" name="checkbox" />
-                                                    <label for="check02"><span><i class="fa fa-check"></i></span>Hội An</label>
-                                                </li>
-                                                <li class="custom-check"><input type="checkbox" id="check03" name="checkbox" />
-                                                    <label for="check03"><span><i class="fa fa-check"></i></span>Hà Giang</label>
-                                                </li>
-                                                <li class="custom-check"><input type="checkbox" id="check04" name="checkbox" />
-                                                    <label for="check04"><span><i class="fa fa-check"></i></span>Phú Quốc</label>
-                                                </li>
-                                                <li class="custom-check"><input type="checkbox" id="check05" name="checkbox" />
-                                                    <label for="check05"><span><i class="fa fa-check"></i></span>Sapa</label>
-                                                </li>
-                                                <li class="custom-check"><input type="checkbox" id="check06" name="checkbox" />
-                                                    <label for="check06"><span><i class="fa fa-check"></i></span>Hà Nội</label>
-                                                </li>
-                                                <li class="custom-check"><input type="checkbox" id="check07" name="checkbox" />
-                                                    <label for="check07"><span><i class="fa fa-check"></i></span>Hồ Chí Minh</label>
-                                                </li>
-                                                <li class="custom-check"><input type="checkbox" id="check08" name="checkbox" />
-                                                    <label for="check08"><span><i class="fa fa-check"></i></span>Cần Thơ</label>
-                                                </li>
-                                                <li class="custom-check"><input type="checkbox" id="check09" name="checkbox" />
-                                                    <label for="check09"><span><i class="fa fa-check"></i></span>Tây Nguyên</label>
-                                                </li>
-                                                <li class="custom-check"><input type="checkbox" id="check10" name="checkbox" />
-                                                    <label for="check10"><span><i class="fa fa-check"></i></span>Đà Lạt</label>
-                                                </li>
-                                            </ul>
-                                        </div><!-- end panel-body -->
-                                    </div><!-- end panel-collapse -->
-                                </div><!-- end panel-default -->
-
-                                <div class="panel panel-default">
+                            <div class="panel panel-default">
                                     <div class="form-group left-icon">
                                         <input type="text" class="form-control" placeholder="Địa Điểm" />
                                     </div><!-- end panel-heading -->
+                            </div>
 
-
-                                </div><!-- end panel-default -->
-
-                                <div class="panel panel-default">
+        
+                            <div class="panel panel-default">
                                     <div class="form-group left-icon">
-                                        <input type="text" class="form-control" placeholder="Tên Tours" />
-                                        <!-- <i class="fa fa-map-marker"></i> -->
+                                        <input type="text" class="form-control" placeholder="" />
                                     </div><!-- end panel-heading -->
+                            </div>
 
-                                    <div id="panel-3" class="panel-collapse collapse">
-
-                                    </div><!-- end panel-collapse -->
-                                </div><!-- end panel-default -->
-
+                                   
+                           
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 search-btn">
+                                            <button class="btn btn-orange" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" type="submit" name="search">Tìm kiếm</button>
+                                        </div><!-- end columns -->
                             </div><!-- end panel-group -->
                         </div><!-- end side-bar-block -->
 

@@ -284,7 +284,7 @@ ob_start();
                         <input class="form-control" type="text" name="name" id="name" value="<?php echo $name ?>">
                         <br>
                         <label class="form-group" for="birthday">Ngày sinh:</label>
-                        <input class="form-control" type="text" name="birthday" id="birthday" value="<?php echo $dateOfBirth ?>">
+                        <input class="form-control" type="text" name="birthday" id="birthday" value="<?php echo $dateOfBirth ?>" placeholder="yyyy/mm/dd" >
                         <br>
                         <label class="form-group" for="password">Password:</label>
                         <input class="form-control" type="password" name="password" id="password" value="<?php echo $password ?>">

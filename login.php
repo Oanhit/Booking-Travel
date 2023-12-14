@@ -1,44 +1,33 @@
 <?php
-$servername = "localhost:4306"; // Tên máy chủ MySQL
-$username = "root";
-$password = "";
-$dbname = "travel";
-
-// Tạo kết nối đến MySQL
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Kiểm tra kết nối
-if ($conn->connect_error) {
-    die("Kết nối đến cơ sở dữ liệu thất bại: " . $conn->connect_error);
-}
+include 'connect.php';
 session_start();
 
-
-
-// Kiểm tra xem người dùng đã gửi thông tin đăng nhập chưa
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Lấy thông tin từ form đăng nhập
     $login = $_POST['user']; // Số điện thoại hoặc email
     $password = $_POST['pass'];
-   
-
+    
     // Thực hiện truy vấn để kiểm tra thông tin đăng nhập từ cơ sở dữ liệu
-    $sql = "SELECT username, phone, email FROM user WHERE ( username = '$login' OR  phone = '$login' OR email = '$login') AND password = '$password'";
+    $sql = "SELECT username, phone, email, password FROM user WHERE ( username = '$login' OR  phone = '$login' OR email = '$login')";
     $result = $conn->query($sql);
     
-
     if ($result && $result->num_rows == 1) {
         // Đăng nhập thành công
-        $_SESSION['dangnhap'] = true;
-        $_SESSION['user'] = $login; // Lưu thông tin đăng nhập vào session
-        // $_SESSION['role'] = $result->fetch_assoc()['role']; // Lưu vai trò của người dùng vào session
-        // var_dump($login);
-        // Chuyển hướng đến trang index hoặc trang khác
-        header("Location: index.php"); // Thay 'index.php' bằng đường dẫn tới trang index của bạn
-        exit(); // Kết thúc quá trình thực thi mã PHP sau khi chuyển hướng
+        $row = $result->fetch_assoc();
+        $stored_password = $row['password'];
+        
+        // Kiểm tra mật khẩu với hàm password_verify
+        if (password_verify($password, $stored_password)) {
+            $_SESSION['dangnhap'] = true;
+            $_SESSION['user'] = $login; // Lưu thông tin đăng nhập vào session
+            
+            header("Location: index.php");
+            exit();
+        } else {
+            echo '<script>alert("Đăng nhập thất bại. Vui lòng kiểm tra lại thông tin đăng nhập.");</script>';
+        }
     } else {
         echo '<script>alert("Đăng nhập thất bại. Vui lòng kiểm tra lại thông tin đăng nhập.");</script>';
-
     }
 }
 
@@ -102,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="col-sm-12">
                     <h1 class="page-title">Đăng nhập</h1>
                     <ul class="breadcrumb">
-                        <li><a href="index.html">Trang Chủ</a></li>
+                        <li><a href="index.php">Trang Chủ</a></li>
                         <li class="active">Đăng nhập</li>
                     </ul>
                 </div><!-- end columns -->
@@ -142,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </form>
 
                                 <div class="other-links">
-                                    <p class="link-line">Tạo tài khoản mới ? <a href="registration.html">Đăng ký</a></p>
+                                    <p class="link-line">Tạo tài khoản mới ? <a href="regis.php">Đăng ký</a></p>
                                     <a class="simple-link" href="forgot-password.php">Quên mật khẩu ?</a>
                                 </div><!-- end other-links -->
                             </div><!-- end custom-form -->

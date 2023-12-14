@@ -78,180 +78,56 @@ session_start();
                 <div class="row">
 
                     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 content-side">
+                        <?php
+                        include 'connect.php';
+                        $sql = "SELECT name, address, price FROM hotel";
+                        $result = $conn->query($sql);
 
-                        <div class="list-block main-block h-list-block">
-                            <div class="list-content">
-                                <div class="main-img list-img h-list-img">
-                                    <a href="hotel-detail-right-sidebar.html">
-                                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/cc/93/53/rosamia-da-nang-hotel.jpg?w=700&h=-1&s=1" class="img-responsive" alt="hotel-img" />
-                                    </a>
-                                    <div class="main-mask">
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price"><i class="fa-solid fa-wifi"></i> Free<span class="divider">|</span><span class="pkg"> Ngày/Đêm</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div><!-- end main-mask -->
-                                </div><!-- end h-list-img -->
+                        if ($result && $result->num_rows > 0) {
+                            // Hiển thị thông tin từ bảng hotel
+                            while ($row = $result->fetch_assoc()) {
 
-                                <div class="list-info h-list-info">
-                                    <h3 class="block-title"><a href="hotel-detail-right-sidebar.html">Rosamia Da Nang Hotel</a></h3>
-                                    <p class="block-minor"><i class="fa-solid fa-money-bill"></i> 1,247,386đ</p>
-                                    <p><i class="fa-solid fa-location-dot"></i> 282 Vo Nguyen Giap, My Khe Beach, Ngu Hanh Son District, Danang, Vietnam, Da Nang 550000 Vietnam</p>
-                                    <a href="hotel-detail-right-sidebar.html" class="btn btn-orange btn-lg">Chi tiết </a>
-                                </div><!-- end h-list-info -->
-                            </div><!-- end list-content -->
-                        </div><!-- end h-list-block -->
+                                $formatted_price = number_format($row["price"], 0, ',', ',');
 
-                        <div class="list-block main-block h-list-block">
-                            <div class="list-content">
-                                <div class="main-img list-img h-list-img">
-                                    <a href="hotel-detail-right-sidebar.html">
-                                        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/302376126.jpg?k=b4cd262d1d61e077c967b5ff966d8829b4bbb5a77c08e70ef38ca2a0b7386794&o=&hp=1" class="img-responsive" alt="hotel-img" />
-                                    </a>
-                                    <div class="main-mask">
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price"><i class="fa-solid fa-wifi"></i> Free<span class="divider">|</span><span class="pkg"> Ngày/Đêm</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div><!-- end main-mask -->
-                                </div><!-- end h-list-img -->
+                        ?>
 
-                                <div class="list-info h-list-info">
-                                    <h3 class="block-title"><a href="hotel-detail-right-sidebar.html">TA Wellness Resort</a></h3>
-                                    <p class="block-minor"><i class="fa-solid fa-money-bill"></i> 6,436,386đ</p>
-                                    <p><i class="fa-solid fa-location-dot"></i> Vo Nguyen Giap Street, Khue My Ward, Ngu Hanh Son District, Da Nang, Vietnam –</p>
-                                    <a href="hotel-detail-right-sidebar.html" class="btn btn-orange btn-lg">Chi tiết</a>
-                                </div><!-- end h-list-info -->
-                            </div><!-- end list-content -->
-                        </div><!-- end h-list-block -->
-                        <div class="list-block main-block h-list-block">
-                            <div class="list-content">
-                                <div class="main-img list-img h-list-img">
-                                    <a href="hotel-detail-right-sidebar.html">
-                                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/89/7f/aa/guest-room.jpg?w=1100&h=-1&s=1" class="img-responsive" alt="hotel-img" />
-                                    </a>
-                                    <div class="main-mask">
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price"><i class="fa-solid fa-wifi"></i> Free<span class="divider">|</span><span class="pkg"> Ngày/Đêm</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div><!-- end main-mask -->
-                                </div><!-- end h-list-img -->
+                                <div class="list-block main-block h-list-block">
+                                    <div class="list-content">
+                                        <div class="main-img list-img h-list-img">
+                                            <a href="hotel-detail-right-sidebar.html">
+                                                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/cc/93/53/rosamia-da-nang-hotel.jpg?w=700&h=-1&s=1" class="img-responsive" alt="hotel-img" />
+                                            </a>
+                                            <div class="main-mask">
+                                                <ul class="list-unstyled list-inline offer-price-1">
+                                                    <li class="price"><i class="fa-solid fa-wifi"></i> Free<span class="divider">|</span><span class="pkg"> Ngày/Đêm</span></li>
+                                                    <li class="rating">
+                                                        <span><i class="fa fa-star orange"></i></span>
+                                                        <span><i class="fa fa-star orange"></i></span>
+                                                        <span><i class="fa fa-star orange"></i></span>
+                                                        <span><i class="fa fa-star orange"></i></span>
+                                                        <span><i class="fa fa-star lightgrey"></i></span>
+                                                    </li>
+                                                </ul>
+                                            </div><!-- end main-mask -->
+                                        </div><!-- end h-list-img -->
 
-                                <div class="list-info h-list-info">
-                                    <h3 class="block-title"><a href="hotel-detail-right-sidebar.html">Hyatt Regency Danang Resort</a></h3>
-                                    <p class="block-minor"><i class="fa-solid fa-money-bill"></i> 4,065,122đ</p>
-                                    <p><i class="fa-solid fa-location-dot"></i> 05 Truong Sa Street Hoa Hai Ward, Ngu Hanh Son District, Đà Nẵng 550000 Việt Nam</p>
-                                    <a href="hotel-detail-right-sidebar.html" class="btn btn-orange btn-lg">Chi tiết</a>
-                                </div><!-- end h-list-info -->
-                            </div><!-- end list-content -->
-                        </div><!-- end h-list-block -->
+                                        <div class="list-info h-list-info">
+                                            <h3 class="block-title"><a href="hotel-detail-right-sidebar.html"><?php echo $row["name"] ?></a></h3>
+                                            <p class="block-minor"><i class="fa-solid fa-money-bill"></i> <?php echo $formatted_price . " VNĐ" ?></p>
+                                            <p><i class="fa-solid fa-location-dot"></i> <?php echo $row["address"]  ?></p>
+                                            <a href="hotel-detail-right-sidebar.html" class="btn btn-orange btn-lg">Chi tiết </a>
+                                        </div><!-- end h-list-info -->
+                                    </div><!-- end list-content -->
+                                </div><!-- end h-list-block -->
+                        <?php
+                            }
+                        } else {
+                            echo "Không có dữ liệu trong bảng hotel";
+                        }
 
-                        <div class="list-block main-block h-list-block">
-                            <div class="list-content">
-                                <div class="main-img list-img h-list-img">
-                                    <a href="hotel-detail-right-sidebar.html">
-                                        <img src="https://anantara-hoi-an-resort.hotelmix.vn/data/Photos/OriginalPhoto/12778/1277871/1277871013/Anantara-Hoi-An-Resort-Exterior.JPEG" class="img-responsive" alt="hotel-img" />
-                                    </a>
-                                    <div class="main-mask">
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price"><i class="fa-solid fa-wifi"></i> Free<span class="divider">|</span><span class="pkg"> Ngày/Đêm</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div><!-- end main-mask -->
-                                </div><!-- end h-list-img -->
-
-                                <div class="list-info h-list-info">
-                                    <h3 class="block-title"><a href="hotel-detail-right-sidebar.html">Anantara Hoi An Resort</a></h3>
-                                    <p class="block-minor"><i class="fa-solid fa-money-bill"></i> 5,658,537đ</p>
-                                    <p><i class="fa-solid fa-location-dot"></i> 1 Pham Hong Thai Street, Hội An 880000 Việt Nam <br><br></p>
-                                    <a href="hotel-detail-right-sidebar.html" class="btn btn-orange btn-lg">Chi tiết</a>
-                                </div><!-- end h-list-info -->
-                            </div><!-- end list-content -->
-                        </div><!-- end h-list-block -->
-
-                        <div class="list-block main-block h-list-block">
-                            <div class="list-content">
-                                <div class="main-img list-img h-list-img">
-                                    <a href="hotel-detail-right-sidebar.html">
-                                        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/491151992.jpg?k=e801fce4f8bc401a134bd81e3edd454e2a65cb1db0e0efbc629279343911ddf8&o=&hp=1" class="img-responsive" alt="hotel-img" />
-                                    </a>
-                                    <div class="main-mask">
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price"><i class="fa-solid fa-wifi"></i> Free<span class="divider">|</span><span class="pkg"> Ngày/Đêm</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div><!-- end main-mask -->
-                                </div><!-- end h-list-img -->
-
-                                <div class="list-info h-list-info">
-                                    <h3 class="block-title"><a href="hotel-detail-right-sidebar.html">Hotel Royal Hoi An - MGallery</a></h3>
-                                    <p class="block-minor"><i class="fa-solid fa-money-bill"></i> 2,120,000đ</p>
-                                    <p><i class="fa-solid fa-location-dot"></i> 39 Đào Duy Từ Street, Cam Pho, Hội An 560000 Việt Nam <br> <br></p>
-                                    <a href="hotel-detail-right-sidebar.html" class="btn btn-orange btn-lg">Chi tiết</a>
-                                </div><!-- end h-list-info -->
-                            </div><!-- end list-content -->
-                        </div><!-- end h-list-block -->
-
-                        <div class="list-block main-block h-list-block">
-                            <div class="list-content">
-                                <div class="main-img list-img h-list-img">
-                                    <a href="hotel-detail-right-sidebar.html">
-                                        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/354168551.jpg?k=1fe325bece610cdc39520831221a6b588cb168d38cec9f1e7c17ce41474b20e1&o=&hp=1" class="img-responsive" alt="hotel-img" />
-                                    </a>
-                                    <div class="main-mask">
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price"><i class="fa-solid fa-wifi"></i> Free<span class="divider">|</span><span class="pkg"> Ngày/Đêm</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div><!-- end main-mask -->
-                                </div><!-- end h-list-img -->
-
-                                <div class="list-info h-list-info">
-                                    <h3 class="block-title"><a href="hotel-detail-right-sidebar.html">Gaia Hotel Phu Quoc</a></h3>
-                                    <p class="block-minor"><i class="fa-solid fa-money-bill"></i> 832,000đ</p>
-                                    <p><i class="fa-solid fa-location-dot"></i> 71 Tran Hung Dao, Duong Dong, Phú Quốc, Việt Nam <br><br></p>
-                                    <a href="hotel-detail-right-sidebar.html" class="btn btn-orange btn-lg">Chi tiết</a>
-                                </div><!-- end h-list-info -->
-                            </div><!-- end list-content -->
-                        </div><!-- end h-list-block -->
-
+                        // Đóng kết nối
+                        $conn->close();
+                        ?>
                         <div class="pages">
                             <ol class="pagination">
                                 <li><a href="#" aria-label="Previous"><span aria-hidden="true"><i class="fa fa-angle-left"></i></span></a></li>

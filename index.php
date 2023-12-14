@@ -1,7 +1,6 @@
 <?php
 session_start();
 ?>
-
 <!doctype html>
 <html lang="en">
 
@@ -69,9 +68,7 @@ session_start();
     <?php
     $active_tab = "home";
     include 'header.php';
-
     ?>
-
     <!--========================= FLEX SLIDER =====================-->
     <section class="flexslider-container" id="flexslider-container-1">
 
@@ -113,46 +110,46 @@ session_start();
                         <div class="tab-content">
 
                             <div id="tours" class="tab-pane in active">
-                                <form>
+                                <form method="post" action="search.php">
                                     <div class="row">
 
                                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2">
                                             <div class="form-group left-icon">
-                                                <input type="text" class="form-control" placeholder="Điểm xuất phát" />
+                                                <input type="text" class="form-control" id="departure" name="departure" placeholder="Điểm xuất phát" />
                                                 <i class="fa fa-map-marker"></i>
                                             </div>
                                         </div>
 
                                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2">
                                             <div class="form-group left-icon">
-                                                <input type="text" class="form-control" placeholder="Điểm đến" />
+                                                <input type="text" class="form-control" id="destination" name="destination" placeholder="Điểm đến" />
                                                 <i class="fa fa-map-marker"></i>
                                             </div>
                                         </div>
 
                                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2">
                                             <div class="form-group left-icon">
-                                                <input type="text" class="form-control dpd1" placeholder="Bắt đầu">
+                                                <input type="date" class="form-control " id="start_date" name="start_date" placeholder="Bắt đầu">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
                                         </div>
 
                                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2">
                                             <div class="form-group left-icon">
-                                                <input type="text" class="form-control dpd1" placeholder="Kết thúc">
+                                                <input type="date" class="form-control " id="end_date" name="end_date" placeholder="Kết thúc">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
                                         </div>
 
                                         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2">
                                             <div class="form-group left-icon">
-                                                <input type="text" class="form-control" placeholder="Tên tours" />
+                                                <input type="text" class="form-control" id="tour_name" name="tour_name" placeholder="Tên tours" />
                                                 <i class="fa fa-tags"></i>
                                             </div>
                                         </div>
 
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 search-btn">
-                                            <button class="btn btn-orange" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Tìm kiếm</button>
+                                            <button class="btn btn-orange" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" type="submit" name="search">Tìm kiếm</button>
                                         </div><!-- end columns -->
 
                                     </div><!-- end row -->
@@ -169,151 +166,97 @@ session_start();
     </section><!-- end flexslider-container -->
 
 
-    <!--=============== HOTEL OFFERS ===============-->
+    <!--=============== Tour nổi bật ===============-->
     <section id="hotel-offers" class="section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="page-heading">
-                        <h2>Địa Điểm Nổi Bật</h2>
+                        <h2>Tour Nổi Bật</h2>
                         <hr class="heading-line" />
                     </div><!-- end page-heading -->
-
                     <div class="owl-carousel owl-theme owl-custom-arrow" id="owl-hotel-offers">
+                        <?php
+                        include 'connect.php';
 
-                        <div class="item">
-                            <div class="main-block hotel-block">
-                                <div class="main-img">
-                                    <a href="tour-detail-left-sidebar.html">
-                                        <img src="https://pos.nvncdn.net/86c7ad-50310/art/artCT/20230420_0moA6KAt.png" class="img-responsive" alt="tour-img" />
-                                        <!-- 360 x 240 -->
-                                    </a>
-                                    <div class="main-mask">
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price">$568.00<span class="divider">|</span><span class="pkg">Khám phá</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div><!-- end main-mask -->
-                                </div><!-- end offer-img -->
+                        // Truy vấn để lấy thông tin về tour có số lượng đặt nhiều nhất
+                        $query_most_ordered = "SELECT tourid, COUNT(*) AS total_orders
+                                               FROM `order`
+                                               GROUP BY tourid
+                                               ORDER BY total_orders DESC
+                                               LIMIT 4";
 
-                                <div class="main-info hotel-info">
-                                    <div class="arrow">
-                                        <a href="tour-detail-left-sidebar.html"><span><i class="fa fa-angle-right"></i></span></a>
-                                    </div><!-- end arrow -->
+                        $result_most_ordered = $conn->query($query_most_ordered);
 
-                                    <div class="main-title hotel-title">
-                                        <a href="tour-detail-left-sidebar.html">Đà Nẵng</a>
-                                        <!-- <p>From: Scotland</p> -->
-                                    </div><!-- end hotel-title -->
-                                </div><!-- end hotel-info -->
-                            </div><!-- end hotel-block -->
-                        </div><!-- end item -->
+                        if ($result_most_ordered && $result_most_ordered->num_rows > 0) {
+                            while ($row_most_ordered = $result_most_ordered->fetch_assoc()) {
+                                $tourId = $row_most_ordered['tourid'];
 
-                        <div class="item">
-                            <div class="main-block hotel-block">
-                                <div class="main-img">
-                                    <a href="#">
-                                        <img src="https://images.vietnamtourism.gov.vn/vn/images/2020/Thang_9/trang_an1.jpg" class="img-responsive" alt="tour-img" />
-                                    </a>
-                                    <div class="main-mask">
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price">$568.00<span class="divider">|</span><span class="pkg">Khám phá</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div><!-- end main-mask -->
-                                </div><!-- end offer-img -->
+                                // Sử dụng tourId để lấy thông tin tour từ bảng 'tour'
+                                $query_tour_info = "SELECT name, star_date, end_date
+                                                    FROM tour
+                                                    WHERE id = $tourId";
 
-                                <div class="main-info hotel-info">
-                                    <div class="arrow">
-                                        <a href="#"><span><i class="fa fa-angle-right"></i></span></a>
-                                    </div><!-- end arrow -->
+                                $result_tour_info = $conn->query($query_tour_info);
 
-                                    <div class="main-title hotel-title">
-                                        <a href="#">Vịnh Hạ Long</a>
-                                        <!-- <p>From: Germany</p> -->
-                                    </div><!-- end hotel-title -->
-                                </div><!-- end hotel-info -->
-                            </div><!-- end hotel-block -->
-                        </div><!-- end item -->
+                                if ($result_tour_info && $result_tour_info->num_rows > 0) {
+                                    while ($row_tour_info = $result_tour_info->fetch_assoc()) {
+                                        $name_tour = $row_tour_info['name'];
+                                        $start_date_str = $row_tour_info['star_date'];
+                                        $end_date_str = $row_tour_info['end_date'];
+                                        $end_date = DateTime::createFromFormat('Y-m-d', $end_date_str);
+                                        $start_date = DateTime::createFromFormat('Y-m-d', $start_date_str);
 
-                        <div class="item">
-                            <div class="main-block hotel-block">
-                                <div class="main-img">
-                                    <a href="#">
-                                        <img src="https://vcdn1-dulich.vnecdn.net/2022/06/01/Hoi-An-VnExpress-5851-16488048-4863-2250-1654057244.jpg?w=0&h=0&q=100&dpr=1&fit=crop&s=Z2ea_f0O7kgGZllKmJF92g" class="img-responsive" alt="tour-img" />
-                                    </a>
-                                    <div class="main-mask">
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price">$568.00<span class="divider">|</span><span class="pkg">Khám phá</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div><!-- end main-mask -->
-                                </div><!-- end offer-img -->
+                                        if ($end_date && $start_date) {
+                                            $interval = $end_date->diff($start_date);
+                                            $total_days = $interval->days;
+                                            $total_nights = $total_days - 1;
+                        ?>
+                                            <div class="item">
+                                                <div class="main-block tour-block">
+                                                    <div class="main-img">
+                                                        <?php
+                                                        $url = "tour-detail.php?id=" . $tourId;
+                                                        // var_dump($tourId);
+                                                        ?>
+                                                        <a href="<?php echo $url ?>">
+                                                            <img src="https://media.vneconomy.vn/images/upload/2023/07/06/1688465738-grasp-the-rainy-season-travel-tips-to-da-lat.jpg" class="img-responsive" alt="tour-img" />
+                                                        </a>
+                                                    </div><!-- end offer-img -->
 
-                                <div class="main-info hotel-info">
-                                    <div class="arrow">
-                                        <a href="#"><span><i class="fa fa-angle-right"></i></span></a>
-                                    </div><!-- end arrow -->
+                                                    <div class="offer-price-2">
+                                                        <ul class="list-unstyled">
+                                                            <li class="price"><a href="#"><span class="arrow"><i class="fa fa-angle-right"></i></span></a></li>
+                                                        </ul>
+                                                    </div><!-- end offer-price-2 -->
 
-                                    <div class="main-title hotel-title">
-                                        <a href="#">Hội An</a>
-                                        <!-- <p>From: Austria</p> -->
-                                    </div><!-- end hotel-title -->
-                                </div><!-- end hotel-info -->
-                            </div><!-- end hotel-block -->
-                        </div><!-- end item -->
+                                                    <div class="main-info tour-info">
+                                                        <div class="main-title tour-title">
+                                                            <a href="#" style="font-size: 16px;"><?php echo $name_tour ?></a>
+                                                            <p><i class="fa-solid fa-clock"></i><?php echo  $total_days . " ngày " . $total_nights . " đêm";  ?></p>
+                                                            <div class="rating">
+                                                                <span><i class="fa fa-star orange"></i></span>
+                                                                <span><i class="fa fa-star orange"></i></span>
+                                                                <span><i class="fa fa-star orange"></i></span>
+                                                                <span><i class="fa fa-star orange"></i></span>
+                                                                <span><i class="fa fa-star grey"></i></span>
+                                                            </div>
+                                                        </div><!-- end tour-title -->
+                                                    </div><!-- end tour-info -->
+                                                </div><!-- end tour-block -->
+                                            </div><!-- end item -->
+                        <?php
+                                        }
+                                    }
+                                } else {
+                                    echo "Không có thông tin tour.";
+                                }
+                            }
+                        }
 
-                        <div class="item">
-                            <div class="main-block hotel-block">
-                                <div class="main-img">
-                                    <a href="#">
-                                        <img src="https://dulichkhampha24.com/wp-content/uploads/2019/10/kinh-nghiem-du-lich-Ha-Giang.jpg" class="img-responsive" alt="tour-img" />
-                                    </a>
-                                    <div class="main-mask">
-                                        <ul class="list-unstyled list-inline offer-price-1">
-                                            <li class="price">$568.00<span class="divider">|</span><span class="pkg">Khám phá</span></li>
-                                            <li class="rating">
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star orange"></i></span>
-                                                <span><i class="fa fa-star lightgrey"></i></span>
-                                            </li>
-                                        </ul>
-                                    </div><!-- end main-mask -->
-                                </div><!-- end offer-img -->
 
-                                <div class="main-info hotel-info">
-                                    <div class="arrow">
-                                        <a href="#"><span><i class="fa fa-angle-right"></i></span></a>
-                                    </div><!-- end arrow -->
-
-                                    <div class="main-title hotel-title">
-                                        <a href="#">Hà Giang</a>
-                                        <!-- <p>From: Germany</p> -->
-                                    </div><!-- end hotel-title -->
-                                </div><!-- end hotel-info -->
-                            </div><!-- end hotel-block -->
-                        </div><!-- end item -->
-
+                        // $conn->close();
+                        ?>
                     </div><!-- end owl-hotel-offers -->
 
                     <div class="view-all text-center">
@@ -365,7 +308,7 @@ session_start();
     </section><!-- end best-features -->
 
 
-    <!--=============== TOUR OFFERS ===============-->
+    <!--=============== TOUR  mới nhất ===============-->
     <section id="tour-offers" class="section-padding" style="background-image: url(https://tugo.com.vn/wp-content/uploads/con-gi-tuyet-hon-khi-ngoi-tren-cabin-ngam-hoang-hon-london-810x459.png);">
         <div class="container">
             <div class="row">
@@ -376,126 +319,84 @@ session_start();
                     </div><!-- end page-heading -->
 
                     <div class="owl-carousel owl-theme owl-custom-arrow" id="owl-tour-offers">
+                        <?php
+                        include 'connect.php';
 
-                        <div class="item">
-                            <div class="main-block tour-block">
-                                <div class="main-img">
-                                    <a href="#">
-                                        <img src="https://datviettour.com.vn/uploads/images/mien-bac/ha-giang/hinh-danh-thang/850px/ha-giang-mua-hoa-tam-giac-mach.jpg" class="img-responsive" alt="tour-img" />
-                                    </a>
-                                </div><!-- end offer-img -->
+                        $query_tours = "SELECT * FROM tour ORDER BY create_at DESC LIMIT 5";
+                        $result_tours = $conn->query($query_tours);
 
-                                <div class="offer-price-2">
-                                    <ul class="list-unstyled">
-                                        <li class="price">7,999,000đ<a href="#"><span class="arrow"><i class="fa fa-angle-right"></i></span></a></li>
-                                    </ul>
-                                </div><!-- end offer-price-2 -->
+                        if ($result_tours && $result_tours->num_rows > 0) {
+                            while ($row_tour = $result_tours->fetch_assoc()) {
+                                $tourId = $row_tour['id'];
+                                $tour_name = $row_tour['name'];
+                                $departure_address = $row_tour['departure_address'];
+                                $start_date_str = $row_tour['star_date'];
+                                $end_date_str = $row_tour['end_date'];
+                                $end_date = DateTime::createFromFormat('Y-m-d', $end_date_str);
+                                $start_date = DateTime::createFromFormat('Y-m-d', $start_date_str);
 
-                                <div class="main-info tour-info">
-                                    <div class="main-title tour-title">
-                                        <a href="#">Hà Giang Tour</a>
-                                        <p><i class="fa-solid fa-clock"></i> 4 Ngày 3 Đêm</p>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star grey"></i></span>
-                                        </div>
-                                    </div><!-- end tour-title -->
-                                </div><!-- end tour-info -->
-                            </div><!-- end tour-block -->
-                        </div><!-- end item -->
+                                if ($end_date && $start_date) {
+                                    $interval = $end_date->diff($start_date);
+                                    $total_days = $interval->days;
+                                    $total_nights = $total_days - 1;
 
-                        <div class="item">
-                            <div class="main-block tour-block">
-                                <div class="main-img">
-                                    <a href="#">
-                                        <img src="https://nhn.1cdn.vn/thumbs/720x480/2023/03/24/base64-16795350350691923441338.png" class="img-responsive" alt="tour-img" />
-                                    </a>
-                                </div><!-- end offer-img -->
+                                    $query_categories = "SELECT DISTINCT tour_category.id  
+                                            FROM tour_category 
+                                            INNER JOIN tour ON tour_categoryid = tour.id LIMIT 5";
 
-                                <div class="offer-price-2">
-                                    <ul class="list-unstyled">
-                                        <li class="price">5,390,000đ<a href="#"><span class="arrow"><i class="fa fa-angle-right"></i></span></a></li>
-                                    </ul>
-                                </div><!-- end offer-price-2 -->
+                                    $result_categories = $conn->query($query_categories);
+                                    if ($result_categories && $result_categories->num_rows > 0) {
+                                        $row_category = $result_categories->fetch_assoc();
+                                        $tourid = $row_category['id'];
+                                        $_SESSION['tour_categoryid'] = $tourId;
+                                        // $tour_category_name = $row_category['name'];
+                        ?>
 
-                                <div class="main-info tour-info">
-                                    <div class="main-title tour-title">
-                                        <a href="#">Phú Quốc Tour</a>
-                                        <p><i class="fa-solid fa-clock"></i> 3 Ngày 2 Đêm</p>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star grey"></i></span>
-                                        </div>
-                                    </div><!-- end tour-title -->
-                                </div><!-- end tour-info -->
-                            </div><!-- end tour-block -->
-                        </div><!-- end item -->
+                                        <div class="item">
+                                            <div class="main-block tour-block">
+                                                <div class="main-img">
+                                                    <?php
+                                                    $url = "tour-detail.php?id=" . $tourId;
+                                                    // var_dump($tourId);
+                                                    ?>
+                                                    <a href="<?php echo $url ?>">
+                                                        <img src="https://nhn.1cdn.vn/thumbs/720x480/2023/03/24/base64-16795350350691923441338.png" class="img-responsive" alt="tour-img" />
+                                                    </a>
+                                                </div><!-- end offer-img -->
 
-                        <div class="item">
-                            <div class="main-block tour-block">
-                                <div class="main-img">
-                                    <a href="#">
-                                        <img src="https://datviettour.com.vn/uploads/images/mien-trung/phan-thiet/hinh-danh-thang/850px/phan-thiet-850px.jpg" class="img-responsive" alt="tour-img" />
-                                    </a>
-                                </div><!-- end offer-img -->
+                                                <div class="offer-price-2">
+                                                    <ul class="list-unstyled">
+                                                        <li class="price" style="font-size: 15px;">Từ: <?php echo $departure_address ?><a href="#"><span class="arrow"><i class="fa fa-angle-right"></i></span></a></li>
+                                                    </ul>
+                                                </div><!-- end offer-price-2 -->
 
-                                <div class="offer-price-2">
-                                    <ul class="list-unstyled">
-                                        <li class="price">1,886,000đ<a href="#"><span class="arrow"><i class="fa fa-angle-right"></i></span></a></li>
-                                    </ul>
-                                </div><!-- end offer-price-2 -->
+                                                <div class="main-info tour-info">
+                                                    <div class="main-title tour-title">
+                                                        <a href="#" style="font-size: 15px;"><?php echo $tour_name ?></a>
+                                                        <p><i class="fa-solid fa-clock"></i><?php echo  $total_days . " ngày " . $total_nights . " đêm";  ?></p>
+                                                        <div class="rating">
+                                                            <span><i class="fa fa-star orange"></i></span>
+                                                            <span><i class="fa fa-star orange"></i></span>
+                                                            <span><i class="fa fa-star orange"></i></span>
+                                                            <span><i class="fa fa-star orange"></i></span>
+                                                            <span><i class="fa fa-star grey"></i></span>
+                                                        </div>
+                                                    </div><!-- end tour-title -->
+                                                </div><!-- end tour-info -->
+                                            </div><!-- end tour-block -->
+                                        </div><!-- end item -->
+                        <?php
+                                    }
+                                }
+                            }
+                        } else {
+                            echo "Không có tour mới nào.";
+                        }
 
-                                <div class="main-info tour-info">
-                                    <div class="main-title tour-title">
-                                        <a href="#">Phan Thiết Tour</a>
-                                        <p><i class="fa-solid fa-clock"></i> 2 Ngày 1 Đêm</p>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star grey"></i></span>
-                                        </div>
-                                    </div><!-- end tour-title -->
-                                </div><!-- end tour-info -->
-                            </div><!-- end tour-block -->
-                        </div><!-- end item -->
 
-                        <div class="item">
-                            <div class="main-block tour-block">
-                                <div class="main-img">
-                                    <a href="#">
-                                        <img src="https://www.dalattrip.com/dulich/media/2017/12/thanh-pho-da-lat.jpg" class="img-responsive" alt="tour-img" />
-                                    </a>
-                                </div><!-- end offer-img -->
 
-                                <div class="offer-price-2">
-                                    <ul class="list-unstyled">
-                                        <li class="price">3,086,000đ<a href="#"><span class="arrow"><i class="fa fa-angle-right"></i></span></a></li>
-                                    </ul>
-                                </div><!-- end offer-price-2 -->
-
-                                <div class="main-info tour-info">
-                                    <div class="main-title tour-title">
-                                        <a href="#">Đà Lạt Tour</a>
-                                        <p><i class="fa-solid fa-clock"></i> 3 Ngày 3 Đêm</p>
-                                        <div class="rating">
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star orange"></i></span>
-                                            <span><i class="fa fa-star grey"></i></span>
-                                        </div>
-                                    </div><!-- end tour-title -->
-                                </div><!-- end tour-info -->
-                            </div><!-- end tour-block -->
-                        </div><!-- end item -->
+                        $conn->close();
+                        ?>
 
                     </div><!-- end owl-tour-offers -->
 
@@ -512,7 +413,7 @@ session_start();
             <div class="row">
                 <div class="col-sm-12">
                     <div class="page-heading">
-                        <h2>Tour nổi bật</h2>
+                        <h2>Ưu đãi Tour</h2>
                         <hr class="heading-line" />
                     </div><!-- end page-heading -->
 

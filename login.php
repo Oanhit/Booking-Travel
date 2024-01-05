@@ -1,37 +1,37 @@
 <?php
 include 'connect.php';
 session_start();
-
+// ...
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Lấy thông tin từ form đăng nhập
     $login = $_POST['user']; // Số điện thoại hoặc email
     $password = $_POST['pass'];
-    
+   
+
     // Thực hiện truy vấn để kiểm tra thông tin đăng nhập từ cơ sở dữ liệu
-    $sql = "SELECT username, phone, email, password FROM user WHERE ( username = '$login' OR  phone = '$login' OR email = '$login')";
+    $sql = "SELECT username, phone, email FROM user WHERE ( username = '$login' OR  phone = '$login' OR email = '$login') AND password = '$password'";
     $result = $conn->query($sql);
     
+
     if ($result && $result->num_rows == 1) {
         // Đăng nhập thành công
-        $row = $result->fetch_assoc();
-        $stored_password = $row['password'];
-        
-        // Kiểm tra mật khẩu với hàm password_verify
-        if (password_verify($password, $stored_password)) {
-            $_SESSION['dangnhap'] = true;
-            $_SESSION['user'] = $login; // Lưu thông tin đăng nhập vào session
-            
-            header("Location: index.php");
-            exit();
-        } else {
-            echo '<script>alert("Đăng nhập thất bại. Vui lòng kiểm tra lại thông tin đăng nhập.");</script>';
-        }
+        $_SESSION['dangnhap'] = true;
+        $_SESSION['user'] = $login; // Lưu thông tin đăng nhập vào session
+        // $_SESSION['role'] = $result->fetch_assoc()['role']; // Lưu vai trò của người dùng vào session
+        // var_dump($login);
+        // Chuyển hướng đến trang index hoặc trang khác
+        echo '<script>alert("Đăng nhập thành công!");</script>';
+        header("Location: index.php"); // Thay 'index.php' bằng đường dẫn tới trang index của bạn
+        exit(); // Kết thúc quá trình thực thi mã PHP sau khi chuyển hướng
     } else {
         echo '<script>alert("Đăng nhập thất bại. Vui lòng kiểm tra lại thông tin đăng nhập.");</script>';
+
     }
 }
 
 ?>
+
+
 
 <!doctype html>
 <html lang="en">

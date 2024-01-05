@@ -127,7 +127,7 @@
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content-side">
                                                 <div class="row">
 
-                                                    <div class="col-sm-6 col-md-6 col-lg-4">
+                                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
                                                         <div class="grid-block main-block h-grid-block">
                                                             <div class="main-img h-grid-img">
                                                                 <?php

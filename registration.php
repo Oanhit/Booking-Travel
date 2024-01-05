@@ -15,23 +15,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Xác nhận mật khẩu không khớp.";
         // Có thể thực hiện hành động khác nếu mật khẩu không khớp
     } else {
-        // Kiểm tra xem mật khẩu có đúng định dạng MD5 không
-        if (preg_match('/^[a-f0-9]{32}$/', $password)) {
-            echo "Vui lòng nhập mật khẩu mới, không sử dụng định dạng MD5.";
-            // Có thể yêu cầu người dùng nhập mật khẩu mới nếu nó theo định dạng MD5
+        // Thêm thông tin tài khoản vào cơ sở dữ liệu
+        $sql = "INSERT INTO user (username , email, phone, password, name) VALUES ('$username', '$email', '$phone', '$password', '$name')";
+        if ($conn->query($sql) === TRUE) {
+            // echo "Đăng ký thành công!";
+            // Có thể chuyển hướng đến trang khác sau khi đăng ký thành công
+            echo '<script>alert("Đăng kí thành công!.");</script>';
+            header("Location: login.php"); // Thay 'login.php' bằng đường dẫn tới trang đăng nhập của bạn
+            exit();
         } else {
-            // Mã hoá mật khẩu
-            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-            // Thêm thông tin tài khoản vào cơ sở dữ liệu
-            $sql = "INSERT INTO user (username , email, phone, password, name) VALUES ('$username', '$email', '$phone', '$hashed_password', '$name')";
-            if ($conn->query($sql) === TRUE) {
-                // Chuyển hướng đến trang khác sau khi đăng ký thành công
-                header("Location: login.php");
-                exit();
-            } else {
-                echo "Đăng ký thất bại: " . $conn->error;
-            }
+            echo '<script>alert("Đăng kí thất bại!");</script>' . $conn->error;
         }
     }
 }

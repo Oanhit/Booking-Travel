@@ -78,28 +78,44 @@ session_start();
                             <p>Khám phá và Trải nghiệm</p>
 
                             <div class="panels-group">
-
-                            <div class="panel panel-default">
+                                <form action="search.php" method="post">
+                                <div class="panel panel-default">
                                     <div class="form-group left-icon">
-                                        <input type="text" class="form-control" placeholder="Địa Điểm" />
-                                    </div><!-- end panel-heading -->
-                            </div>
-
-        
-                            <div class="panel panel-default">
+                                        <input type="text" class="form-control" id="departure" name="departure" placeholder="Điểm xuất phát" />
+                                        <!-- <i class="fa fa-map-marker"></i> -->
+                                    </div>
+                                </div>
+                                    <div class="panel panel-default">
+                                        <div class="form-group left-icon">
+                                            <input type="text" class="form-control" id="destination" name="destination" placeholder="Điểm đến" />
+                                        </div><!-- end panel-heading -->
+                                    </div>
+                                    <div class="panel panel-default">
                                     <div class="form-group left-icon">
-                                        <input type="text" class="form-control" placeholder="" />
-                                    </div><!-- end panel-heading -->
-                            </div>
+                                        <input type="date" class="form-control " id="start_date" name="start_date" placeholder="Bắt đầu">
+                                        <!-- <i class="fa fa-calendar"></i> -->
+                                    </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                    <div class="form-group left-icon">
+                                        <input type="date" class="form-control " id="end_date" name="end_date" placeholder="Kết thúc">
+                                        <!-- <i class="fa fa-calendar"></i> -->
+                                    </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="form-group left-icon">
+                                            <input type="text" class="form-control" id="tour_name" name="tour_name" placeholder="Tên tour" />
+                                        </div><!-- end panel-heading -->
+                                    </div>
 
-                                   
-                           
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 search-btn">
-                                            <button class="btn btn-orange" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" type="submit" name="search">Tìm kiếm</button>
-                                        </div><!-- end columns -->
+
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 search-btn">
+                                        <button class="btn btn-orange" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" type="submit" name="search">Tìm kiếm</button>
+                                    </div><!-- end columns -->
                             </div><!-- end panel-group -->
                         </div><!-- end side-bar-block -->
-
+                        </form>
                         <div class="row">
                             <div class="col-xs-12 col-sm-6 col-md-12">
                                 <div class="side-bar-block main-block ad-block">
@@ -148,14 +164,14 @@ session_start();
                                 $tourStatus = $row['status'];
 
                     ?>
-                                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 content-side" >
+                                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 content-side">
 
                                     <div class="list-block main-block t-list-block">
                                         <div class="list-content">
                                             <div class="main-img list-img t-list-img">
                                                 <?php
                                                 $url = "tour-detail.php?id=" . $tourId;
-                                                
+
                                                 // var_dump($tourId);
                                                 ?>
                                                 <a href="<?php echo $url; ?>">
@@ -244,7 +260,7 @@ session_start();
         </div><!-- end container -->
     </section><!-- end best-features -->
 
- <!--======================= FOOTER =======================-->
+    <!--======================= FOOTER =======================-->
     <?php
     include 'footer.php';
     ?>
